@@ -23,7 +23,7 @@ $( [ "1" == "1" ] && printf '%s' ' -usercon' ) $( [ "1" == "1" ] || printf '%s' 
 +sv_hibernate_when_empty false
 ```
 
-`$( sh custom_files.sh >&2 )` is my own addition: it runs `48b4a3c2-.../custom_files.sh` (copies `custom_files/`
+`$( sh custom_files.sh >&2 )` is my own addition: it runs `cs2-server/custom_files.sh` (copies `custom_files/`
 into `game/csgo/`) before the game starts.
 
 ## Variables

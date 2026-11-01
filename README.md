@@ -7,9 +7,9 @@ The game itself is not in this repository.
 
 | Path | What it is |
 |---|---|
-| `48b4a3c2-.../custom_files/` | Everything I add to the game: plugins, plugin configs, `cfg/` (modes, settings), `gamemodes_server.txt`. Copied over `game/csgo/` on every server start |
-| `48b4a3c2-.../custom_files.sh` | Startup script that does that copy (egg variable `CUSTOM_FILES_ENABLED`) |
-| `48b4a3c2-.../egg/configs/` | KitsuneLab egg configs (logging, cleanup, console filter) |
+| `cs2-server/custom_files/` | Everything I add to the game: plugins, plugin configs, `cfg/` (modes, settings), `gamemodes_server.txt`. Copied over `game/csgo/` on every server start |
+| `cs2-server/custom_files.sh` | Startup script that does that copy (egg variable `CUSTOM_FILES_ENABLED`) |
+| `cs2-server/egg/configs/` | KitsuneLab egg configs (logging, cleanup, console filter) |
 | `PANEL.md` | Pterodactyl panel settings (egg variables, startup command). They are not in any file, keep this up to date by hand |
 | `build/plugins/` | Source of my own plugins (OnlineAdmins, CheatsGuard, MoveDebug, AllMaps, GrenadeRebuy) |
 | `build/*-src/` | Source of the third-party plugins I build myself with local patches (each has a `MODIFICATIONS.md`) |

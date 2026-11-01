@@ -20,7 +20,7 @@ if not defined WINSCP_SESSION (
 )
 if not defined WINSCP_PATH set "WINSCP_PATH=%LOCALAPPDATA%\Programs\WinSCP\WinSCP.com"
 
-set "LOCAL=%~dp048b4a3c2-4508-40ba-974b-6fd0df07d518\custom_files"
+set "LOCAL=%~dp0cs2-server\custom_files"
 set "REMOTE=/custom_files"
 set "CFG=addons/counterstrikesharp/configs/plugins"
 

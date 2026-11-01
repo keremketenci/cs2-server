@@ -26,7 +26,7 @@ where upstream has one, and a `MODIFICATIONS.md` that lists the changed files an
 
 ## Plugins and libraries included as released
 
-The DLLs under `48b4a3c2-.../custom_files/addons/` are the authors' release builds, unchanged.
+The DLLs under `cs2-server/custom_files/addons/` are the authors' release builds, unchanged.
 Installed versions are in `build/tools/plugins.json`.
 
 | Component | Author | License | Source |
