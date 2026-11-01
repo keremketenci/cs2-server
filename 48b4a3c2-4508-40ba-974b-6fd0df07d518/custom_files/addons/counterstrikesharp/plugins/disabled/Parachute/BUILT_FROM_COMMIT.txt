@@ -1,0 +1,2 @@
+Self-built from Franc1sco/CS2-Parachute main (c3be1bef3074ff4140e2fda97e13420dec5f47de) with local patches.
+See build/patches/README.md before updating this plugin.

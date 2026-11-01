@@ -1,0 +1,48 @@
+diff -ruN --strip-trailing-cr a/GameModeManager/Config.cs b/GameModeManager/Config.cs
+--- a/GameModeManager/Config.cs	2026-10-30 21:23:00.925814700 +0300
++++ b/GameModeManager/Config.cs	2026-10-31 04:24:47.126472600 +0300
+@@ -53,6 +53,9 @@
+         public int TriggerKillsBeforeEnd { get; set; } = 13; // Kills needed to trigger end of map vote (armsrace/gungame)
+         public int TriggerRoundsBeforeEnd { get; set; } = 2; // Rounds remaining to trigger end of map vote
+         public int TriggerSecondsBeforeEnd { get; set; } = 120; // Seconds remaining to trigger end of map vote
++        // [LOCAL PATCH] When the match ends without a vote, keep the current map (same mode) instead of a random option.
++        // Needs mp_match_end_restart 1 so the engine restarts the match.
++        public bool RepeatCurrentMapWhenNoVote { get; set; } = false;
+     }
+ 
+     // Define map settings
+diff -ruN --strip-trailing-cr a/GameModeManager/CrossCutting/ServerManager.cs b/GameModeManager/CrossCutting/ServerManager.cs
+--- a/GameModeManager/CrossCutting/ServerManager.cs	2026-10-30 21:23:00.740971000 +0300
++++ b/GameModeManager/CrossCutting/ServerManager.cs	2026-10-31 04:24:47.131284500 +0300
+@@ -71,10 +71,13 @@
+             CountdownTimer timer = new CountdownTimer(delay, () => 
+             {
+                 // Change map
+-                if (Server.IsMapValid(nextMap.Name))
+-                    Server.ExecuteCommand($"changelevel \"{nextMap.Name}\"");
+-                else if (nextMap.WorkshopId != -1)
++                // [LOCAL PATCH] Workshop id first. IsMapValid is also true for the workshop map that is loaded
++                // right now, and changelevel to it unmounts its addon, then the map file is missing and the server
++                // dies (NETWORK_DISCONNECT_CLIENT_NO_MAP), e.g. picking AWP Only again while on awp_bhop_rocket.
++                if (nextMap.WorkshopId > 0)
+                     Server.ExecuteCommand($"host_workshop_map \"{nextMap.WorkshopId}\"");
++                else if (Server.IsMapValid(nextMap.Name))
++                    Server.ExecuteCommand($"changelevel \"{nextMap.Name}\"");
+                 else
+                     Server.ExecuteCommand($"ds_workshop_changelevel \"{nextMap.Name}\"");
+ 
+@@ -182,6 +185,14 @@
+                         ChangeMap(_pluginState.RTV.NextMap, _config.Maps.Delay);
+                     }
+                 }
++                // [LOCAL PATCH] No vote happened: keep the current map (and mode) instead of a random option.
++                // Do not change the map here: workshop maps often do not match their gamemodes_server.txt name,
++                // so CurrentMap has no workshop id and changing to it fails. The engine restarts the match
++                // on the same map instead (mp_match_end_restart 1 in cfg/settings/map_voting.cfg).
++                else if (_config.RTV.RepeatCurrentMapWhenNoVote)
++                {
++                    _logger.LogInformation("RTV: Match ended without a vote, the engine restarts it on the same map.");
++                }
+                 else
+                 {
+                     // If no vote occurred, pick a random option based on RTV settings

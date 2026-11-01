@@ -1,0 +1,19 @@
+{
+  "PrintToCenterHtml": false,
+  "HtmlCenterDuration": 5,
+  "ShowHtmlWhenDead": false,
+  "WelcomeMessage": null,
+  "Ads": [
+    {
+      "Interval": 180,
+      "Messages": [
+        {
+          "Chat": "{GOLD}[Server] {DEFAULT}Want another mode or map? Type {LIME}!rtv {DEFAULT}to start a vote."
+        }
+      ]
+    }
+  ],
+  "Commands": [],
+  "MapsName": {},
+  "Version": 1
+}

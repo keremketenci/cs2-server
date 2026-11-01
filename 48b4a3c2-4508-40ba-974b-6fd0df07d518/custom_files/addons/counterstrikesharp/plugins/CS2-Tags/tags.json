@@ -1,0 +1,52 @@
+{
+  "tags": {
+    "76561198346350406": {
+      "prefix": "{Red}[OWNER] ",
+      "nick_color": "{Red}",
+      "message_color": "{Red}",
+      "scoreboard": "[OWNER]"
+    },
+    "#admin": {
+      "prefix": "{Blue}[ADMIN] ",
+      "nick_color": "{Blue}",
+      "message_color": "{Blue}",
+      "scoreboard": "[ADMIN]"
+    },
+    "@css/config": {
+      "prefix": "{Blue}[ADMIN] ",
+      "nick_color": "{Blue}",
+      "message_color": "{Blue}",
+      "scoreboard": "[ADMIN]"
+    },
+    "#moderator": {
+      "prefix": "{Orange}[MODERATOR] ",
+      "nick_color": "{Orange}",
+      "message_color": "{Orange}",
+      "scoreboard": "[MODERATOR]"
+    },
+    "@css/ban": {
+      "prefix": "{Orange}[MODERATOR] ",
+      "nick_color": "{Orange}",
+      "message_color": "{Orange}",
+      "scoreboard": "[MODERATOR]"
+    },
+    "@css/kick": {
+      "prefix": "{Orange}[MODERATOR] ",
+      "nick_color": "{Orange}",
+      "message_color": "{Orange}",
+      "scoreboard": "[MODERATOR]"
+    },
+    "@css/generic": {
+      "prefix": "{Orange}[MODERATOR] ",
+      "nick_color": "{Orange}",
+      "message_color": "{Orange}",
+      "scoreboard": "[MODERATOR]"
+    },
+    "everyone": {
+      "prefix": "",
+      "nick_color": "",
+      "message_color": "",
+      "scoreboard": "[PLAYER]"
+    }
+  }
+}

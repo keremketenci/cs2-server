@@ -1,0 +1,30 @@
+{
+  "version": "1.2.1",
+  "_description": [
+    "Console Filter Configuration",
+    "",
+    "Filter unwanted console messages from CS2 server output.",
+    "",
+    "Settings:",
+    "  - preview_mode: Show blocked messages in debug log (true/false)",
+    "  - patterns: Array of filter patterns",
+    "",
+    "Pattern Matching:",
+    "  - Prefix with @ for exact match: \"@Server is hibernating\"",
+    "  - Without @ for contains match: \"edicts used\"",
+    "",
+    "Examples:",
+    "  \"@exact text\" - Only blocks lines that match exactly",
+    "  \"contains this\" - Blocks any line containing this text",
+    "",
+    "Note: STEAM_ACC token is automatically masked if set.",
+    "",
+    "Enable this feature by setting ENABLE_FILTER=1 in the Pterodactyl egg.",
+    "",
+    "Config location: /home/container/egg/configs/console-filter.json"
+  ],
+  "preview_mode": false,
+  "patterns": [
+    "Certificate expires"
+  ]
+}

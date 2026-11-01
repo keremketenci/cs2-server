@@ -1,0 +1,248 @@
+{
+  "Version": 12,
+  "RTV": {
+    "Enabled": true,
+    "Style": "center",
+    "PerMap": false,
+    "HideHud": true,
+    "MinRounds": 0,
+    "MinPlayers": 1,
+    "VoteDuration": 60,
+    "OptionsToShow": 999,
+    "VotePercentage": 51,
+    "OptionsInCoolDown": 3,
+    "EndOfMapVote": false,
+    "IncludeModes": true,
+    "IncludeExtend": true,
+    "MaxExtends": 6,
+    "ExtendTime": 10,
+    "ExtendRounds": 5,
+    "ModePercentage": 50,
+    "EnabledInWarmup": false,
+    "HideHudAfterVote": false,
+    "NominationEnabled": true,
+    "MaxNominationWinners": 1,
+    "ChangeImmediately": false,
+    "TriggerKillsBeforeEnd": 13,
+    "TriggerRoundsBeforeEnd": 2,
+    "TriggerSecondsBeforeEnd": 120,
+    "RepeatCurrentMapWhenNoVote": true
+  },
+  "Maps": {
+    "Mode": 0,
+    "Delay": 5,
+    "Style": "center",
+    "Default": "de_dust2"
+  },
+  "Votes": {
+    "Enabled": false,
+    "Maps": true,
+    "Style": "center",
+    "GameModes": true,
+    "GameSettings": false
+  },
+  "Settings": {
+    "Enabled": true,
+    "Style": "center",
+    "Folder": "settings"
+  },
+  "Warmup": {
+    "Enabled": false,
+    "Time": 0,
+    "PerMap": false,
+    "Default": {
+      "Name": "Deathmatch",
+      "Config": "warmup/dm.cfg"
+    },
+    "List": [
+      {
+        "Name": "Deathmatch",
+        "Config": "warmup/dm.cfg"
+      },
+      {
+        "Name": "Knives Only",
+        "Config": "warmup/knives_only.cfg"
+      },
+      {
+        "Name": "Scoutz Only",
+        "Config": "warmup/scoutz_only.cfg"
+      }
+    ]
+  },
+  "Commands": {
+    "Map": true,
+    "Maps": true,
+    "Mode": true,
+    "Modes": true,
+    "TimeLeft": true,
+    "TimeLimit": true,
+    "Style": "center"
+  },
+  "Rotation": {
+    "Enabled": false,
+    "Cycle": 0,
+    "MapGroups": [
+      "mg_active",
+      "mg_comp"
+    ],
+    "WhenServerEmpty": false,
+    "CustomTimeLimit": 600,
+    "ModeRotation": false,
+    "ModeInterval": 4,
+    "ModeSchedules": false,
+    "Schedule": [
+      {
+        "Time": "10:00",
+        "Mode": "Casual"
+      },
+      {
+        "Time": "15:00",
+        "Mode": "Practice"
+      },
+      {
+        "Time": "17:00",
+        "Mode": "Competitive"
+      }
+    ]
+  },
+  "GameModes": {
+    "Style": "center",
+    "Default": {
+      "Name": "Free Play",
+      "Config": "modes/freeplay.cfg",
+      "DefaultMap": null,
+      "MapGroups": [
+        "mg_valve_competitive",
+        "mg_valve_casual",
+        "mg_valve_wingman"
+      ]
+    },
+    "MapGroupFile": "gamemodes_server.txt",
+    "List": [
+      {
+        "Name": "Free Play",
+        "Config": "modes/freeplay.cfg",
+        "DefaultMap": "de_dust2",
+        "MapGroups": [
+          "mg_valve_competitive",
+          "mg_valve_casual",
+          "mg_valve_wingman"
+        ]
+      },
+      {
+        "Name": "Free Play Rounds",
+        "Config": "modes/freeplay_rounds.cfg",
+        "DefaultMap": "de_dust2",
+        "MapGroups": [
+          "mg_valve_competitive",
+          "mg_valve_casual",
+          "mg_valve_wingman"
+        ]
+      },
+      {
+        "Name": "Casual",
+        "Config": "modes/casual.cfg",
+        "DefaultMap": "de_dust2",
+        "MapGroups": [
+          "mg_valve_casual"
+        ]
+      },
+      {
+        "Name": "Competitive",
+        "Config": "modes/competitive.cfg",
+        "DefaultMap": "de_dust2",
+        "MapGroups": [
+          "mg_valve_competitive"
+        ]
+      },
+      {
+        "Name": "Wingman",
+        "Config": "modes/wingman.cfg",
+        "DefaultMap": "de_inferno",
+        "MapGroups": [
+          "mg_valve_wingman"
+        ]
+      },
+      {
+        "Name": "Retake",
+        "Config": "modes/retake.cfg",
+        "DefaultMap": "de_mirage",
+        "MapGroups": [
+          "mg_retake"
+        ]
+      },
+      {
+        "Name": "FACEIT FF Off",
+        "Config": "modes/faceit.cfg",
+        "DefaultMap": "de_dust2",
+        "MapGroups": [
+          "mg_active"
+        ]
+      },
+      {
+        "Name": "FACEIT FF On",
+        "Config": "modes/faceit_ff.cfg",
+        "DefaultMap": "de_dust2",
+        "MapGroups": [
+          "mg_active"
+        ]
+      },
+      {
+        "Name": "Utility Practice",
+        "Config": "modes/utility.cfg",
+        "DefaultMap": "de_dust2",
+        "MapGroups": [
+          "mg_utility"
+        ]
+      },
+      {
+        "Name": "Deathmatch",
+        "Config": "modes/deathmatch.cfg",
+        "DefaultMap": "de_dust2",
+        "MapGroups": [
+          "mg_dm"
+        ]
+      },
+      {
+        "Name": "Gun Game",
+        "Config": "modes/gungame.cfg",
+        "DefaultMap": "ar_pool_day",
+        "MapGroups": [
+          "mg_gg"
+        ]
+      },
+      {
+        "Name": "Arms Race",
+        "Config": "modes/armsrace.cfg",
+        "DefaultMap": "ar_baggage",
+        "MapGroups": [
+          "mg_valve_arms_race"
+        ]
+      },
+      {
+        "Name": "Rush",
+        "Config": "modes/rush.cfg",
+        "DefaultMap": "rush_001",
+        "MapGroups": [
+          "mg_rush"
+        ]
+      },
+      {
+        "Name": "AWP",
+        "Config": "modes/awp.cfg",
+        "DefaultMap": "3367343580",
+        "MapGroups": [
+          "mg_awp"
+        ]
+      },
+      {
+        "Name": "Aim",
+        "Config": "modes/aim.cfg",
+        "DefaultMap": "3199551320",
+        "MapGroups": [
+          "mg_aim"
+        ]
+      }
+    ]
+  }
+}

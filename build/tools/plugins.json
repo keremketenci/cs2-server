@@ -1,0 +1,296 @@
+{
+  "_readme": [
+    "Installed plugins and where they come from. Update 'installed' after every plugin update.",
+    "keep: files inside the plugin folder (or elsewhere) that hold settings and must survive an update.",
+    "CounterStrikeSharp and Metamod are not listed: the KitsuneLab egg updates them on every start.",
+    "patched: plugin is self-built with local changes, read build/patches/README.md before updating it."
+  ],
+  "plugins": [
+    {
+      "name": "MatchZy",
+      "folder": "plugins/disabled/MatchZy",
+      "repo": "shobhit-pathak/MatchZy",
+      "installed": "0.9.2",
+      "keep": [
+        "cfg/MatchZy/*_override.cfg",
+        "cfg/MatchZy/live.cfg: 'mp_friendlyfire 1' line removed"
+      ]
+    },
+    {
+      "name": "CS2-SimpleAdmin (+ FunCommands, StealthModule)",
+      "folder": "plugins/CS2-SimpleAdmin",
+      "repo": "daffyyyy/CS2-SimpleAdmin",
+      "installed": "build-1.9.1",
+      "keep": [
+        "configs/plugins/CS2-SimpleAdmin/*",
+        "plugins/CS2-SimpleAdmin/cs2-simpleadmin.sqlite (live database, never overwrite)",
+        "StealthModule is in plugins/disabled (both custom_files and game/csgo): its player list kept stale controllers after map changes and very likely crashed the server (2026-10-31). Do not re-enable it when updating."
+      ]
+    },
+    {
+      "name": "CS2-Tags",
+      "folder": "plugins/CS2-Tags",
+      "repo": "daffyyyy/CS2-Tags",
+      "installed": "build-37",
+      "keep": [
+        "plugins/CS2-Tags/tags.json"
+      ]
+    },
+    {
+      "name": "InventorySimulator",
+      "folder": "plugins/InventorySimulator",
+      "repo": "ianlucas/cs2-css-inventory-simulator",
+      "installed": "3.7.2",
+      "keep": [
+        "gamedata/inventory-simulator.json (comes with the plugin, replace it too)"
+      ]
+    },
+    {
+      "name": "CustomCommands",
+      "folder": "plugins/CustomCommands",
+      "repo": "HerrMagiic/CSS-CreateCustomCommands",
+      "installed": "v3.0.1",
+      "keep": [
+        "plugins/CustomCommands/Commands.json (all custom commands and the !help pages)"
+      ]
+    },
+    {
+      "name": "ShowPlayersInfo",
+      "folder": "plugins/ShowPlayersInfo",
+      "repo": "jockii/cs2_ShowPlayersInfo",
+      "installed": "v1.3.0",
+      "keep": []
+    },
+    {
+      "name": "CS2 Parachute (self-built)",
+      "folder": "plugins/disabled/Parachute",
+      "repo": "Franc1sco/CS2-Parachute",
+      "installed": "commit:c3be1bef3074ff4140e2fda97e13420dec5f47de",
+      "keep": [
+        "configs/plugins/Parachute/*"
+      ],
+      "patched": "build/patches/README.md#cs2-parachute"
+    },
+    {
+      "name": "MenuManager [Core]",
+      "folder": "plugins/MenuManagerCore",
+      "repo": "NickFox007/MenuManagerCS2",
+      "installed": "1.4.1",
+      "keep": []
+    },
+    {
+      "name": "PlayerSettings [Core]",
+      "folder": "plugins/PlayerSettings",
+      "repo": "NickFox007/PlayerSettingsCS2",
+      "installed": "0.9.4",
+      "keep": [
+        "plugins/PlayerSettings/settings.sqlite (live database, never overwrite)"
+      ]
+    },
+    {
+      "name": "AnyBaseLib (shared)",
+      "folder": "shared/AnyBaseLib",
+      "repo": "NickFox007/AnyBaseLibCS2",
+      "installed": "unknown",
+      "keep": []
+    },
+    {
+      "name": "Custom Votes",
+      "folder": "plugins/CS2-CustomVotes",
+      "repo": "imi-tat0r/CS2-CustomVotes",
+      "installed": "v1.1.4",
+      "keep": [
+        "configs/plugins/CS2-CustomVotes/*"
+      ]
+    },
+    {
+      "name": "GameModeManager (self-built)",
+      "folder": "plugins/GameModeManager",
+      "repo": "nickj609/GameModeManager",
+      "installed": "commit:0f354d1d569b91ea9fd9b7e37a54d0b3a5dd2e70",
+      "keep": [
+        "configs/plugins/GameModeManager/GameModeManager.json",
+        "never copy shared/ DLLs into the plugin folder"
+      ],
+      "patched": "build/patches/README.md#gamemodemanager"
+    },
+    {
+      "name": "MenuManagerAPI (self-built)",
+      "folder": "plugins/MenuManagerAPI",
+      "repo": "nickj609/MenuManagerAPI",
+      "installed": "v1.0.3",
+      "keep": [
+        "copy only MenuManagerAPI.dll/.pdb, never shared/ or PlayerSettings from bin/"
+      ],
+      "patched": "build/patches/README.md#menumanagerapi"
+    },
+    {
+      "name": "CS2_ExecAfter",
+      "folder": "plugins/CS2_ExecAfter",
+      "repo": "kus/CS2_ExecAfter",
+      "installed": "v1.0.0",
+      "keep": []
+    },
+    {
+      "name": "Deathmatch",
+      "folder": "plugins/disabled/Deathmatch",
+      "repo": "NockyCZ/CS2-Deathmatch",
+      "installed": "v1.3.6",
+      "keep": [
+        "configs/plugins/Deathmatch/Deathmatch.json: Hud Type 0, Game Length 10, Force Map End true"
+      ]
+    },
+    {
+      "name": "GunGame (GG2)",
+      "folder": "plugins/disabled/GG2",
+      "repo": "ssypchenko/cs2-gungame",
+      "installed": "v1.2.4",
+      "keep": [
+        "cfg/gungame/gungame.json: EndGameSilent false, EndGameDelay 10, WinnerMessage 1 (no map chooser plugin, GameModeManager changes the map)",
+        "cfg/gungame/*"
+      ]
+    },
+    {
+      "name": "K4-DamageInfo",
+      "folder": "plugins/disabled/K4-DamageInfo",
+      "repo": "K4ryuu/K4-DamageInfo",
+      "installed": "v2.4.0",
+      "keep": [
+        "configs/plugins/K4-DamageInfo/*"
+      ]
+    },
+    {
+      "name": "Remove Map Weapons",
+      "folder": "plugins/disabled/CS2-Remove-Map-Weapons",
+      "repo": "kus/CS2-Remove-Map-Weapons",
+      "installed": "v1.0.1",
+      "keep": []
+    },
+    {
+      "name": "MutualScoringPlayers",
+      "folder": "plugins/disabled/MutualScoringPlayers",
+      "repo": "qstage/CS2-MutualScoringPlayers",
+      "installed": "v1.0.3",
+      "keep": []
+    },
+    {
+      "name": "Online Admins (our own)",
+      "folder": "plugins/OnlineAdmins",
+      "repo": "",
+      "installed": "1.0.0",
+      "keep": [
+        "source: build/plugins/OnlineAdmins"
+      ]
+    },
+    {
+      "name": "Advertisement (!rtv reminder)",
+      "folder": "plugins/Advertisement",
+      "repo": "partiusfabaa/cs2-advertisement",
+      "installed": "v2.0.0",
+      "keep": [
+        "configs/plugins/Advertisement/Advertisement.json",
+        "cfg/modes/*.cfg: unloaded in unload_plugins.cfg, loaded again in RTV modes (freeplay, deathmatch, gungame, awp, aim)"
+      ]
+    },
+    {
+      "name": "Cheats Guard (our own)",
+      "folder": "plugins/CheatsGuard",
+      "repo": "",
+      "installed": "1.0.0",
+      "keep": [
+        "source: build/plugins/CheatsGuard",
+        "used by cfg/settings/enable_*.cfg and disable_*.cfg (cheats_push / cheats_pop)"
+      ]
+    },
+    {
+      "name": "Move Debug (our own)",
+      "folder": "plugins/MoveDebug",
+      "repo": "",
+      "installed": "1.1.0",
+      "keep": [
+        "source: build/plugins/MoveDebug",
+        "!movedebug (root): movement state, game state (freeze/pause/warmup) to chat, movement cvars to the console"
+      ]
+    },
+    {
+      "name": "Retakes (Retake mode core, self-built)",
+      "folder": "plugins/disabled/RetakesPlugin",
+      "repo": "B3none/cs2-retakes",
+      "installed": "3.1.1",
+      "keep": [
+        "release zip with map configs: plugins/disabled/RetakesPlugin/map_config/*.json (11 maps) and shared/RetakesPluginShared",
+        "configs/plugins/RetakesPlugin/RetakesPlugin.json: EnableFallbackAllocation false (RetakesAllocator gives the weapons)",
+        "cfg/cs2-retakes/retakes.cfg (ours, no mp_match_end_restart: map_voting.cfg owns it) and retakes_unload.cfg (ours, no bot_quota 10)",
+        "ModuleName \"Retakes Plugin\" (modes/unload_plugins.cfg)",
+        "CustomCommands !scron/!scroff/!roton/!rotoff need the patch (retakes_scramble_enabled / retakes_balance_enabled)"
+      ],
+      "patched": "build/patches/README.md#retakes"
+    },
+    {
+      "name": "Retakes Weapon Allocator (!guns, votes)",
+      "folder": "plugins/disabled/RetakesAllocator",
+      "repo": "Ravid-A/cs2-retakes-weapon-allocator",
+      "installed": "v3.2.6",
+      "keep": [
+        "delete RetakesPluginShared.dll and CounterStrikeSharp.API.dll from the release folder (shared/ and CSS provide them)",
+        "plugins/disabled/RetakesAllocator/weapons.db (SQLite, player loadouts, created on the server only)",
+        "configs/plugins/RetakesAllocator/RetakesAllocator.json (generated, defaults)",
+        "needs MultiAddonManager + workshop addon 3792297574 (HUD layout); a new release may need the addon updated too",
+        "ModuleName \"[Retakes] Weapons Allocator\""
+      ]
+    },
+    {
+      "name": "Instadefuse",
+      "folder": "plugins/disabled/InstadefusePlugin",
+      "repo": "B3none/cs2-instadefuse",
+      "installed": "2.0.0",
+      "keep": [
+        "no config",
+        "ModuleName \"Instadefuse Plugin\""
+      ]
+    },
+    {
+      "name": "Clutch Announce",
+      "folder": "plugins/disabled/ClutchAnnouncePlugin",
+      "repo": "B3none/cs2-clutch-announce",
+      "installed": "1.1.0",
+      "keep": [
+        "no config",
+        "ModuleName \"Clutch Announce Plugin\""
+      ]
+    },
+    {
+      "name": "MultiAddonManager (Metamod)",
+      "folder": "addons/multiaddonmanager",
+      "repo": "Source2ZE/MultiAddonManager",
+      "installed": "v1.7.3",
+      "keep": [
+        "steamrt3 build (needs only GLIBC 2.14, works on both runtimes); addons/metamod/multiaddonmanager.vdf",
+        "cfg/multiaddonmanager/multiaddonmanager.cfg: mm_client_extra_addons 3792297574 (Retakes Allocator HUD)"
+      ]
+    },
+    {
+      "name": "All Maps (our own)",
+      "folder": "plugins/AllMaps",
+      "repo": "",
+      "installed": "1.1.1",
+      "keep": [
+        "source: build/plugins/AllMaps",
+        "!maps2 / !allmaps (@css/changemap): categories = map groups from gamemodes_server.txt, map change via GameModeManager css_map",
+        "!modes2 / !allmodes: exec the mode cfg + reload the current map (needs GameModeManager.Shared game_mode:api)",
+        "configs/plugins/AllMaps/AllMaps.json: Permission, Categories (Wingman maps = mg_valve_wingman, separate from Valve maps)"
+      ]
+    },
+    {
+      "name": "Grenade Rebuy (our own)",
+      "folder": "plugins/GrenadeRebuy",
+      "repo": "",
+      "installed": "1.0.1",
+      "keep": [
+        "source: build/plugins/GrenadeRebuy",
+        "grenade_rebuy_enabled: 1 in cfg/modes/freeplay_settings.cfg, 0 in cfg/modes/reset.cfg",
+        "on grenade_thrown lowers m_weaponPurchasesThisRound count of that grenade by 1"
+      ]
+    }
+  ]
+}

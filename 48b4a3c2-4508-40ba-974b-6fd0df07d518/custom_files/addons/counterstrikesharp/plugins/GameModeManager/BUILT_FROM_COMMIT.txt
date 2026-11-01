@@ -1,0 +1,2 @@
+0f354d1d569b91ea9fd9b7e37a54d0b3a5dd2e70
+Self-built from nickj609/GameModeManager main with local patches. See build/patches/README.md before updating this plugin.

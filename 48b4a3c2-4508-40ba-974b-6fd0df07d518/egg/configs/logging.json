@@ -1,0 +1,32 @@
+{
+  "version": "1.2.1",
+  "_description": [
+    "Logging Configuration",
+    "",
+    "Control console output level and file logging.",
+    "",
+    "Console Settings:",
+    "  - logging.console_level: Minimum log level for console output",
+    "    Available levels: DEBUG, INFO, WARNING, ERROR",
+    "",
+    "File Logging:",
+    "  - logging.file_enabled: Enable daily rotating log files (true/false)",
+    "  - logging.max_size_mb: Maximum total log directory size in MB",
+    "  - logging.max_files: Maximum number of log files to keep",
+    "  - logging.max_days: Maximum age of log files in days",
+    "",
+    "Log files stored in: /home/container/egg/logs/YYYY-MM-DD.log",
+    "Rotation triggers when ANY limit is reached (size OR count OR age)",
+    "",
+    "Note: This config is always loaded and does not require an environment variable.",
+    "",
+    "Config location: /home/container/egg/configs/logging.json"
+  ],
+  "logging": {
+    "console_level": "INFO",
+    "file_enabled": true,
+    "max_size_mb": 100,
+    "max_files": 30,
+    "max_days": 7
+  }
+}

@@ -1,0 +1,52 @@
+diff --git a/RetakesPlugin/Managers/GameManager.cs b/RetakesPlugin/Managers/GameManager.cs
+index b589035..716da67 100644
+--- a/RetakesPlugin/Managers/GameManager.cs
++++ b/RetakesPlugin/Managers/GameManager.cs
+@@ -13,9 +13,10 @@ public class GameManager
+     private Dictionary<int, PlayerScore> _playerScores = new();
+     public readonly QueueManager QueueManager;
+     private readonly int _consecutiveRoundWinsToScramble;
+-    private readonly bool _isScrambleEnabled;
++    // [LOCAL PATCH] read from the plugin convars so they can be toggled in game
++    private bool _isScrambleEnabled => _plugin.ScrambleEnabledConVar.Value;
+     private readonly bool _removeSpectatorsEnabled;
+-    private readonly bool _isBalanceEnabled;
++    private bool _isBalanceEnabled => _plugin.BalanceEnabledConVar.Value;
+     private readonly int _minimumPlayers;
+     private float _lastRestartGameTime = -RestartGameCooldownSeconds;
+ 
+@@ -29,9 +30,7 @@ public class GameManager
+         _plugin = plugin;
+         QueueManager = queueManager;
+         _consecutiveRoundWinsToScramble = roundsToScramble ?? 5;
+-        _isScrambleEnabled = isScrambleEnabled ?? true;
+         _removeSpectatorsEnabled = removeSpectatorsEnabled ?? false;
+-        _isBalanceEnabled = isBalanceEnabled ?? true;
+         // Clamp so a misconfigured value can never leave the server waiting forever
+         _minimumPlayers = Math.Min(minimumPlayers ?? 0, queueManager.MaxRetakesPlayers);
+ 
+diff --git a/RetakesPlugin/RetakesPlugin.cs b/RetakesPlugin/RetakesPlugin.cs
+index e9da5d0..323b200 100644
+--- a/RetakesPlugin/RetakesPlugin.cs
++++ b/RetakesPlugin/RetakesPlugin.cs
+@@ -40,6 +40,9 @@ public class RetakesPlugin : BasePlugin, IPluginConfig<BaseConfigs>
+     public void OnConfigParsed(BaseConfigs config)
+     {
+         Config = config;
++        // [LOCAL PATCH] the config only sets the start values, the convars below can change them in game
++        ScrambleEnabledConVar.Value = Config.Team.IsScrambleEnabled;
++        BalanceEnabledConVar.Value = Config.Team.IsBalanceEnabled;
+         Utils.Logger.Initialize(Config.Debug.IsDebugMode);
+         Utils.Logger.LogInfo("Main", "Configuration parsed successfully");
+     }
+@@ -94,6 +97,10 @@ public class RetakesPlugin : BasePlugin, IPluginConfig<BaseConfigs>
+     #region ConVars
+     public FakeConVar<bool> RetakesEnabledConVar = new("retakes_enabled", "Whether the retakes plugin is enabled or not.", true);
+     private bool _lastEnabledState = true;
++
++    // [LOCAL PATCH] in-game toggles for TeamSettings.IsScrambleEnabled and IsBalanceEnabled (read every round)
++    public FakeConVar<bool> ScrambleEnabledConVar = new("retakes_scramble_enabled", "Scramble the teams after RoundsToScramble T wins in a row.", true);
++    public FakeConVar<bool> BalanceEnabledConVar = new("retakes_balance_enabled", "Move the best CTs to T after a CT win and balance the team sizes.", true);
+     #endregion
+ 
+     public bool IsPluginEnabled => RetakesEnabledConVar.Value;

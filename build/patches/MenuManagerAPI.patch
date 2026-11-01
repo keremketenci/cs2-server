@@ -1,0 +1,77 @@
+diff -ruN -x bin -x obj -x lib -x COMMIT.txt a/MenuManagerAPI/Core/PlayerInfo.cs b/MenuManagerAPI/Core/PlayerInfo.cs
+--- a/MenuManagerAPI/Core/PlayerInfo.cs	2026-02-15 19:29:07.000000000 +0300
++++ b/MenuManagerAPI/Core/PlayerInfo.cs	2026-10-31 18:29:05.307357100 +0300
+@@ -83,9 +83,10 @@
+                     if (player.PlayerPawn.Value != null && Plugin.Players.ContainsKey(player.Slot))
+                         player.PlayerPawn.Value.VelocityModifier = Plugin.Players[player.Slot].VelocityModifier;
+                 }
+-                else
++                // [LOCAL PATCH] on map start the controller or pawn can already be gone, skip unfreezing then
++                else if (player.IsValid && player.Pawn.Value is { IsValid: true } pawn)
+                 {
+-                    PlayerExtensions.Unfreeze(player.Pawn.Value!);
++                    PlayerExtensions.Unfreeze(pawn);
+                 }
+             }
+         }
+@@ -186,6 +187,11 @@
+                 case PostSelectAction.Nothing:
+                     SelectionProcessing = false;
+                     break;
++                // [LOCAL PATCH] OnChoose may close the menu (MainMenu == null), then no case matches
++                // and SelectionProcessing stayed true forever: E did nothing until the player rejoined.
++                default:
++                    SelectionProcessing = false;
++                    break;
+             }
+         }
+     }
+diff -ruN -x bin -x obj -x lib -x COMMIT.txt a/MenuManagerAPI/MenuManagerAPI.csproj b/MenuManagerAPI/MenuManagerAPI.csproj
+--- a/MenuManagerAPI/MenuManagerAPI.csproj	2026-02-15 19:29:07.000000000 +0300
++++ b/MenuManagerAPI/MenuManagerAPI.csproj	2026-10-31 18:29:05.309870200 +0300
+@@ -12,7 +12,8 @@
+     </ItemGroup>
+     <ItemGroup>
+       <Reference Include="PlayerSettingsAPI">
+-        <HintPath>\lib\shared\PlayerSettingsAPI.dll</HintPath>
++        <!-- [LOCAL PATCH] upstream HintPath was \lib\shared\PlayerSettingsAPI.dll (drive root), the build could not find it -->
++        <HintPath>lib\shared\PlayerSettingsApi\PlayerSettingsApi.dll</HintPath>
+       </Reference>
+     </ItemGroup>
+    <Target Name="PublicBuild" AfterTargets="AfterBuild">
+diff -ruN -x bin -x obj -x lib -x COMMIT.txt a/MenuManagerAPI/Plugin.cs b/MenuManagerAPI/Plugin.cs
+--- a/MenuManagerAPI/Plugin.cs	2026-02-15 19:29:07.000000000 +0300
++++ b/MenuManagerAPI/Plugin.cs	2026-10-31 18:29:05.318995500 +0300
+@@ -65,7 +65,9 @@
+             var openMenus = new List<PlayerInfo>(MenuManagerAPI.Core.ButtonMenuManager.GetOpenMenus());
+             foreach (var playerInfo in openMenus)
+             {
+-                ButtonMenuManager.CloseMenu(playerInfo);
++                // [LOCAL PATCH] full close (upstream PR #4): ButtonMenuManager.CloseMenu only stopped the key handling,
++                // the player stayed frozen and PlayerInfo kept the menu, so later menus never worked until rejoin
++                playerInfo.CloseMenu();
+             }
+             
+             _dependencyManager.OnMapStart(@event);
+@@ -100,7 +102,9 @@
+             var openMenus = new List<PlayerInfo>(MenuManagerAPI.Core.ButtonMenuManager.GetOpenMenus());
+             foreach (var playerInfo in openMenus)
+             {
+-                ButtonMenuManager.CloseMenu(playerInfo);
++                // [LOCAL PATCH] full close (upstream PR #4): ButtonMenuManager.CloseMenu only stopped the key handling,
++                // the player stayed frozen and PlayerInfo kept the menu, so later menus never worked until rejoin
++                playerInfo.CloseMenu();
+             }
+             return HookResult.Continue;
+         });
+@@ -110,8 +114,9 @@
+             // On hot reload, close all open menus and reset state
+             var openMenus = new List<PlayerInfo>(ButtonMenuManager.GetOpenMenus());
+ 
++            // [LOCAL PATCH] full close (upstream PR #4)
+             foreach (var infoObj in openMenus)
+-                ButtonMenuManager.CloseMenu(infoObj);
++                infoObj.CloseMenu();
+ 
+             Players.Clear();
+ 

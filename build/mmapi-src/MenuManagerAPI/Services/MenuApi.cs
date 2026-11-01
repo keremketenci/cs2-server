@@ -1,0 +1,73 @@
+﻿// Included libraries
+using MenuManagerAPI.Core;
+using MenuManagerAPI.Shared;
+using MenuManagerAPI.CrossCutting;
+using CounterStrikeSharp.API.Core;
+using MenuManagerAPI.Shared.Models;
+using CounterStrikeSharp.API.Modules.Menu;
+
+// Declare namespace
+namespace MenuManagerAPI.Services;
+
+// Define class
+public class MenuAPI : IMenuAPI
+{
+
+    // Define class methods
+    public IMenu GetMenu(string title, Action<CCSPlayerController>? backAction = null, Action<CCSPlayerController>? resetAction = null, MenuType? forceType = null)
+    {
+        return new MenuInstance(title, backAction, resetAction, forceType);
+    }
+    public MenuType GetMenuType(CCSPlayerController player)
+    {
+        return MenuTypeManager.GetPlayerMenuType(player);
+    }
+
+    public bool HasOpenedMenu(CCSPlayerController player)
+    {
+        return Plugin.Players[player.Slot].MenuOpen;
+    }
+
+    public void OpenMenu(IMenu menu, CCSPlayerController player)
+    {
+        menu.Open(player);
+    }
+
+    public void OpenMenuToAll(IMenu menu)
+    {
+        menu.OpenToAll();
+    }
+
+    public void CloseMenu(CCSPlayerController player)
+    {
+        if (Plugin.Players.TryGetValue(player.Slot, out PlayerInfo? playerInfo))
+        {
+            if (playerInfo.ButtonMenuOpen)
+                playerInfo.CloseMenu();
+            else
+                MenuManager.CloseActiveMenu(player);
+                
+            playerInfo.MenuOpen = false;
+        }
+    }
+
+    public void CloseMenuForAll()
+    {
+        foreach (var player in PlayerExtensions.ValidPlayers())
+            CloseMenu(player);
+    }
+    
+    public void SetMenuType(CCSPlayerController player, MenuType menuType)
+    {
+        MenuTypeManager.SetPlayerMenuType(player, menuType);
+    }
+
+    public void RefreshMenu(CCSPlayerController player)
+    {
+        if (Plugin.Players.TryGetValue(player.Slot, out PlayerInfo? playerInfo))
+        {
+            if (playerInfo.ButtonMenuOpen)
+                playerInfo.RefreshDisplay();
+        }
+    }
+}

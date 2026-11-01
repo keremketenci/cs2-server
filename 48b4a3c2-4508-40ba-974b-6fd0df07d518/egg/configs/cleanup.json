@@ -1,0 +1,99 @@
+{
+  "version": "1.2.1",
+  "_description": [
+    "Cleanup Configuration: rule-based",
+    "",
+    "Every entry in 'rules' is an independent cleanup target. You can edit,",
+    "disable, add, or remove rules without touching any code.",
+    "",
+    "Rule fields:",
+    "  - name: Stat category shown in log output (e.g. 'demos', 'backup_rounds')",
+    "  - description: Free-text comment (ignored by the engine)",
+    "  - directories: Array of paths to search (relative to /home/container or absolute)",
+    "  - patterns: Array of filename globs (e.g. '*.dem', 'core.[0-9]*')",
+    "  - hours: File must be older than this many hours (0 = delete on every run)",
+    "  - recursive: true = walk subdirectories, false = only the directory root",
+    "  - delete_parent_dir: true = delete the matched file's whole parent folder",
+    "    (for per-crash bundle dirs; the rule's root directory is never deleted)",
+    "  - enabled: false disables the rule without deleting it",
+    "",
+    "Enable cleanup by setting CLEANUP_ENABLED=1 in the Pterodactyl egg.",
+    "",
+    "Config location: /home/container/egg/configs/cleanup.json"
+  ],
+  "rules": [
+    {
+      "name": "backup_rounds",
+      "description": "CS2 match backup round snapshots",
+      "directories": ["./game/csgo"],
+      "patterns": ["backup_round*.txt"],
+      "hours": 24,
+      "recursive": true,
+      "enabled": true
+    },
+    {
+      "name": "demos",
+      "description": "SourceTV demo recordings",
+      "directories": ["./game/csgo"],
+      "patterns": ["*.dem"],
+      "hours": 168,
+      "recursive": true,
+      "enabled": true
+    },
+    {
+      "name": "css_logs",
+      "description": "CounterStrikeSharp log files",
+      "directories": ["./game/csgo/addons/counterstrikesharp/logs"],
+      "patterns": ["*.txt"],
+      "hours": 72,
+      "recursive": true,
+      "enabled": true
+    },
+    {
+      "name": "swiftly_logs",
+      "description": "SwiftlyS2 log files",
+      "directories": ["./game/csgo/addons/swiftlys2/logs"],
+      "patterns": ["*.log"],
+      "hours": 72,
+      "recursive": true,
+      "enabled": true
+    },
+    {
+      "name": "swiftly_crash_reports",
+      "description": "SwiftlyS2 crash reports: loose .dmp files and per-UUID bundle dirs",
+      "directories": ["./game/csgo/addons/swiftlys2/dumps/crashreport"],
+      "patterns": ["*.dmp"],
+      "hours": 168,
+      "recursive": true,
+      "delete_parent_dir": true,
+      "enabled": true
+    },
+    {
+      "name": "swiftly_prevention_logs",
+      "description": "SwiftlyS2 crash prevention incident logs",
+      "directories": ["./game/csgo/addons/swiftlys2/dumps/prevention"],
+      "patterns": ["*.log"],
+      "hours": 168,
+      "recursive": false,
+      "enabled": true
+    },
+    {
+      "name": "accelerator_dumps",
+      "description": "AcceleratorCS2 crash dumps and reports",
+      "directories": ["./game/csgo/addons/AcceleratorCS2/dumps"],
+      "patterns": ["*.dmp", "*.dmp.txt"],
+      "hours": 168,
+      "recursive": true,
+      "enabled": true
+    },
+    {
+      "name": "core_dumps",
+      "description": "Linux core dumps (delete on every run)",
+      "directories": ["./game/bin/linuxsteamrt64", "/home/container"],
+      "patterns": ["core", "core.[0-9]*"],
+      "hours": 0,
+      "recursive": false,
+      "enabled": true
+    }
+  ]
+}

@@ -1,0 +1,60 @@
+diff -ruN a/src/Parachute.cs b/src/Parachute.cs
+--- a/src/Parachute.cs	2026-10-30 20:21:46.512986300 +0300
++++ b/src/Parachute.cs	2026-10-30 20:21:46.543440900 +0300
+@@ -43,15 +43,9 @@
+             return;
+         }
+ 
+-        if (hotReload)
+-        {
+-            Utilities.GetPlayers().ForEach(player =>
+-            {
+-                bUsingPara.Add((int)player.Index, false);
+-                gParaTicks.Add((int)player.Index, 0);
+-                gParaModel.Add((int)player.Index, null);
+-            });
+-        }
++        // [LOCAL PATCH] was "if (hotReload)": css_plugins load mid-game passes hotReload=false,
++        // so players already on the server were never added and OnTick threw KeyNotFoundException until they rejoined.
++        Utilities.GetPlayers().ForEach(player => InitPlayer((int)player.Index));
+ 
+         if (Config.ParachuteModelEnabled)
+         {
+@@ -73,9 +67,8 @@
+             }
+             else
+             {
+-                bUsingPara.Add((int)player.Index, false);
+-                gParaTicks.Add((int)player.Index, 0);
+-                gParaModel.Add((int)player.Index, null);
++                // [LOCAL PATCH] was Dictionary.Add, which throws when the slot is already known (map change)
++                InitPlayer((int)player.Index);
+                 return HookResult.Continue;
+             }
+         });
+@@ -120,6 +113,10 @@
+                 && player.PawnIsAlive
+                 && (Config.AccessFlag == "" || AdminManager.PlayerHasPermissions(player, Config.AccessFlag)))
+                 {
++                    // [LOCAL PATCH] never index the dictionaries with a player we have not seen yet
++                    if (!bUsingPara.ContainsKey((int)player.Index))
++                        InitPlayer((int)player.Index);
++
+                     var buttons = player.Buttons;
+                     var pawn = player.PlayerPawn.Value!;
+                     if ((buttons & PlayerButtons.Use) != 0 && !pawn.OnGroundLastTick && (!Config.DisableWhenCarryingHostage || pawn.HostageServices!.CarriedHostageProp.Value == null))
+@@ -150,6 +147,14 @@
+ 
+     }
+ 
++    // [LOCAL PATCH] one place that creates (or resets) a player's entries, overwriting instead of Add
++    private void InitPlayer(int index)
++    {
++        bUsingPara[index] = false;
++        gParaTicks[index] = 0;
++        gParaModel[index] = null;
++    }
++
+     private void StopPara(CCSPlayerController player)
+     {
+         player.GravityScale = 1.0f;

@@ -1,0 +1,2 @@
+# Store every file byte for byte: the server cfg files mix CRLF and LF, and the game reads them as they are.
+* -text

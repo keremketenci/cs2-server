@@ -1,0 +1,28 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <AssemblyName>AllMaps</AssemblyName>
+    <Version>1.1.1</Version>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!-- Provided by CounterStrikeSharp on the server, so it is not copied to the output -->
+    <PackageReference Include="CounterStrikeSharp.API" Version="1.0.362">
+      <ExcludeAssets>runtime</ExcludeAssets>
+    </PackageReference>
+    <!-- Loaded by CounterStrikeSharp from shared/MenuManagerAPI.Shared, never copy it into the plugin folder -->
+    <Reference Include="MenuManagerAPI.Shared">
+      <HintPath>..\..\..\48b4a3c2-4508-40ba-974b-6fd0df07d518\custom_files\addons\counterstrikesharp\shared\MenuManagerAPI.Shared\MenuManagerAPI.Shared.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <!-- GameModeManager API (game_mode:api), also loaded from shared/ -->
+    <Reference Include="GameModeManager.Shared">
+      <HintPath>..\..\..\48b4a3c2-4508-40ba-974b-6fd0df07d518\custom_files\addons\counterstrikesharp\shared\GameModeManager.Shared\GameModeManager.Shared.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+  </ItemGroup>
+
+</Project>

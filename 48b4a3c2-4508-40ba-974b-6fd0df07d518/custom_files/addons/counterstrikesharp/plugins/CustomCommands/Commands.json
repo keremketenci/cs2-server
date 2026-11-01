@@ -1,0 +1,839 @@
+[
+  {
+    "Title": "Command list",
+    "Description": "Help page",
+    "Command": "help,yardim,komutlar,commands",
+    "Message": [
+      "{GOLD}========== {BLUE}SERVER HELP {GOLD}==========",
+      " {GREY}Type a category command to see its list:",
+      " {LIME}!hmaps {GREY}- {DEFAULT}modes, maps and voting",
+      " {LIME}!hgame {GREY}- {DEFAULT}game toggles: bunny, bots, parachute ...",
+      " {LIME}!hmatch {GREY}- {DEFAULT}FACEIT match: ready, pause, knife",
+      " {LIME}!hprac {GREY}- {DEFAULT}utility practice: rethrow, bots, lineups",
+      " {LIME}!hdm {GREY}- {DEFAULT}deathmatch weapons",
+      " {LIME}!hretake {GREY}- {DEFAULT}retake: guns menu, votes",
+      " {LIME}!sahelp {GREY}- {DEFAULT}SimpleAdmin: players, punish, fun (2 pages)",
+      " {RED}*{GREY} = admin only   |   {LIME}.{GREY} commands work in FACEIT and Utility modes"
+    ],
+    "PrintTo": 0
+  },
+  {
+    "Title": "Help: modes and maps",
+    "Description": "Help page",
+    "Command": "hmaps",
+    "Message": [
+      "{GOLD}========== {BLUE}MODES & MAPS {GOLD}==========",
+      " {LIME}!rtv {GREY}- {DEFAULT}vote for the next map or mode",
+      " {LIME}!nominate {GREY}- {DEFAULT}add a map or mode to the next vote",
+      " {LIME}!nextmap {GREY}/ {LIME}!nextmode {GREY}- {DEFAULT}what comes next",
+      " {LIME}!currentmap {GREY}/ {LIME}!currentmode {GREY}- {DEFAULT}what is playing now",
+      " {LIME}!timeleft {GREY}- {DEFAULT}time left on this map",
+      " {LIME}!game {GREY}- {DEFAULT}player menu",
+      " {LIME}!changemenu {GREY}- {DEFAULT}change how menus look",
+      " {RED}* {LIME}!modes {GREY}- {DEFAULT}switch the game mode (loads its default map)",
+      " {RED}* {LIME}!modes2 {GREY}/ {LIME}!allmodes {GREY}- {DEFAULT}switch the game mode, stay on this map",
+      " {RED}* {LIME}!hmodes {GREY}- {DEFAULT}one command per mode: !awponly, !retake, !wingman ...",
+      " {RED}* {LIME}!maps {GREY}- {DEFAULT}change the map (maps of the current mode)",
+      " {RED}* {LIME}!maps2 {GREY}/ {LIME}!allmaps {GREY}- {DEFAULT}any server map by category, keeps the current mode",
+      " {RED}* {LIME}!map <name> {GREY}- {DEFAULT}change to a map by name",
+      " {RED}* {LIME}!settings {GREY}- {DEFAULT}game settings: buy anywhere, respawn, bots ..."
+    ],
+    "PrintTo": 0
+  },
+  {
+    "Title": "Help: mode shortcuts",
+    "Description": "Help page",
+    "Command": "hmodes",
+    "Message": [
+      "{GOLD}========== {BLUE}MODE SHORTCUTS {RED}(admin) {GOLD}==========",
+      " {LIME}!freeplay {GREY}/ {LIME}!fpr {GREY}- {DEFAULT}Free Play / Free Play Rounds",
+      " {LIME}!casual {GREY}/ {LIME}!comp {GREY}/ {LIME}!wingman {GREY}- {DEFAULT}Casual / Competitive / Wingman",
+      " {LIME}!retake {GREY}- {DEFAULT}Retake",
+      " {LIME}!faceit {GREY}/ {LIME}!faceitffoff {GREY}- {DEFAULT}FACEIT FF On / FACEIT FF Off",
+      " {LIME}!utility {GREY}- {DEFAULT}Utility Practice",
+      " {LIME}!deathmatch {GREY}/ {LIME}!gungame {GREY}/ {LIME}!armsrace {GREY}- {DEFAULT}Deathmatch / Gun Game / Arms Race",
+      " {LIME}!rush {GREY}/ {LIME}!awponly {GREY}/ {LIME}!aim {GREY}- {DEFAULT}Rush / AWP / Aim",
+      " {GREY}Loads the default map of the mode. Same map: {LIME}!modes2"
+    ],
+    "PrintTo": 0
+  },
+  {
+    "Title": "Help: game toggles",
+    "Description": "Help page",
+    "Command": "hgame",
+    "Message": [
+      "{GOLD}========== {BLUE}GAME TOGGLES {RED}(admin) {GOLD}==========",
+      " {LIME}!bon {GREY}/ {LIME}!boff {GREY}- {DEFAULT}bunny hop on / off",
+      " {LIME}!abon {GREY}/ {LIME}!aboff {GREY}- {DEFAULT}team auto balance on / off",
+      " {LIME}!pon {GREY}/ {LIME}!poff {GREY}- {DEFAULT}parachute on / off",
+      " {LIME}!bk {GREY}- {DEFAULT}kick all bots",
+      " {LIME}!bat {GREY}/ {LIME}!bac {GREY}- {DEFAULT}add a T / CT bot",
+      " {LIME}!rg {GREY}- {DEFAULT}restart the game",
+      " {LIME}!we {GREY}- {DEFAULT}end the warmup",
+      " {LIME}!swapteams {GREY}- {DEFAULT}swap the teams",
+      " {LIME}!pm {GREY}/ {LIME}!upm {GREY}- {DEFAULT}pause at next round start / unpause",
+      " {LIME}!ch1 {GREY}/ {LIME}!ch0 {GREY}- {DEFAULT}cheats on / off",
+      " {LIME}!ia0 {GREY}/ {LIME}!ia1 {GREY}/ {LIME}!ia2 {GREY}- {DEFAULT}infinite ammo: off / with grenades / magazine only",
+      " {LIME}!rec {GREY}/ {LIME}!norec {GREY}- {DEFAULT}record the next match / stop recording",
+      " {GREY}More toggles (buy anywhere, respawn, bots, scout only ...): {LIME}!settings"
+    ],
+    "PrintTo": 0
+  },
+  {
+    "Title": "Help: FACEIT match",
+    "Description": "Help page",
+    "Command": "hmatch",
+    "Message": [
+      "{GOLD}========== {BLUE}FACEIT MATCH {GOLD}==========",
+      " {LIME}.ready {GREY}/ {LIME}.r {GREY}- {DEFAULT}ready up",
+      " {LIME}.unready {GREY}- {DEFAULT}not ready anymore",
+      " {LIME}.stay {GREY}/ {LIME}.switch {GREY}- {DEFAULT}knife winners pick their side",
+      " {LIME}.pause {GREY}/ {LIME}.unpause {GREY}- {DEFAULT}pause (both teams must unpause)",
+      " {LIME}.tech {GREY}- {DEFAULT}technical pause",
+      " {LIME}.tac {GREY}- {DEFAULT}tactical timeout",
+      " {RED}* {LIME}.start {GREY}- {DEFAULT}force start the match",
+      " {RED}* {LIME}.rr {GREY}- {DEFAULT}restart the match",
+      " {RED}* {LIME}.endmatch {GREY}- {DEFAULT}end the match",
+      " {RED}* {LIME}.rk {GREY}- {DEFAULT}knife round on / off",
+      " {RED}* {LIME}.fp {GREY}/ {LIME}.fup {GREY}- {DEFAULT}force pause / unpause"
+    ],
+    "PrintTo": 0
+  },
+  {
+    "Title": "Help: utility practice",
+    "Description": "Help page",
+    "Command": "hprac",
+    "Message": [
+      "{GOLD}========== {BLUE}UTILITY PRACTICE {GOLD}==========",
+      " {LIME}.rethrow {GREY}- {DEFAULT}throw your last grenade again",
+      " {LIME}.last {GREY}- {DEFAULT}go back to where you threw it",
+      " {LIME}.savenade <name> {GREY}/ {LIME}.loadnade {GREY}- {DEFAULT}save / load a lineup",
+      " {LIME}.listnades {GREY}- {DEFAULT}your saved lineups",
+      " {LIME}.bot {GREY}/ {LIME}.crouchbot {GREY}- {DEFAULT}place a bot where you look",
+      " {LIME}.nobots {GREY}- {DEFAULT}remove the bots",
+      " {LIME}.spawn {GREY}/ {LIME}.ctspawn {GREY}/ {LIME}.tspawn {GREY}- {DEFAULT}teleport to a spawn",
+      " {LIME}.clear {GREY}- {DEFAULT}clear smokes and fires",
+      " {LIME}.ff {GREY}- {DEFAULT}fast forward",
+      " {LIME}.noflash {GREY}- {DEFAULT}flashbangs do not blind you",
+      " {LIME}.god {GREY}- {DEFAULT}god mode",
+      " {LIME}.traj {GREY}/ {LIME}.impacts {GREY}- {DEFAULT}grenade trajectory / bullet impacts"
+    ],
+    "PrintTo": 0
+  },
+  {
+    "Title": "Help: deathmatch",
+    "Description": "Help page",
+    "Command": "hdm",
+    "Message": [
+      "{GOLD}========== {BLUE}DEATHMATCH {GOLD}==========",
+      " {LIME}!gun {GREY}/ {LIME}!w {GREY}/ {LIME}!g {GREY}- {DEFAULT}choose your weapons",
+      " {LIME}!dm {GREY}- {DEFAULT}deathmatch settings",
+      " {LIME}!ak !m4 !m4s !awp !scout {GREY}- {DEFAULT}quick rifle",
+      " {LIME}!deagle !usp !glock !mac {GREY}- {DEFAULT}quick pistol / SMG"
+    ],
+    "PrintTo": 0
+  },
+  {
+    "Title": "Help: retake",
+    "Description": "Help page",
+    "Command": "hretake",
+    "Message": [
+      "{GOLD}========== {BLUE}RETAKE {GOLD}==========",
+      " {GREY}Bomb is already planted: Ts hold the site, CTs retake it. First 2 rounds are pistol rounds.",
+      " {LIME}!guns {GREY}/ {LIME}!pistols {GREY}/ {LIME}!awp {GREY}- {DEFAULT}loadout menu (or type {LIME}guns{DEFAULT} in chat)",
+      " {LIME}!vp {GREY}/ {LIME}!vph {GREY}- {DEFAULT}vote pistol rounds / pistols + headshots only",
+      " {LIME}!vawp {GREY}/ {LIME}!vrifles {GREY}/ {LIME}!vhs {GREY}- {DEFAULT}vote AWP / rifles / headshots only rounds",
+      " {LIME}!voices {GREY}- {DEFAULT}bombsite voice announcements on / off",
+      " {RED}* {LIME}!scramble {GREY}- {DEFAULT}scramble the teams next round",
+      " {RED}* {LIME}!scron {GREY}/ {LIME}!scroff {GREY}- {DEFAULT}auto scramble after 5 T wins on / off",
+      " {RED}* {LIME}!roton {GREY}/ {LIME}!rotoff {GREY}- {DEFAULT}round-end rotation + team balance on / off",
+      " {RED}* {LIME}!forcebombsite A|B {GREY}/ {LIME}!forcebombsitestop {GREY}- {DEFAULT}play one site only {GREY}(owner)",
+      " {RED}* {LIME}!forcevawp {GREY}- {DEFAULT}force a vote: !force<vote> {GREY}(owner)",
+      " {RED}* {LIME}!skip_pistol {GREY}- {DEFAULT}skip the pistol rounds {GREY}(owner)",
+      " {GREY}The menu needs the HUD addon players download on connect."
+    ],
+    "PrintTo": 0
+  },
+  {
+    "Title": "Help: SimpleAdmin 1/2",
+    "Description": "Help page",
+    "Command": "sahelp,hadmin",
+    "Message": [
+      "{GOLD}========== {BLUE}SIMPLEADMIN 1/2 {RED}(admin) {GOLD}==========",
+      " {LIME}!admin {GREY}- {DEFAULT}admin menu: players, fun, server",
+      " {LIME}!kick {GREY}/ {LIME}!ban {GREY}/ {LIME}!unban <player> {GREY}- {DEFAULT}kick / ban / unban",
+      " {LIME}!mute {GREY}/ {LIME}!gag {GREY}/ {LIME}!silence {GREY}- {DEFAULT}block voice / chat / both (!un... undoes)",
+      " {LIME}!warn {GREY}/ {LIME}!unwarn {GREY}/ {LIME}!warns {GREY}- {DEFAULT}warnings",
+      " {LIME}!slay {GREY}/ {LIME}!slap {GREY}/ {LIME}!respawn {GREY}- {DEFAULT}kill / slap / respawn",
+      " {LIME}!team <player> <t|ct|spec> {GREY}- {DEFAULT}move a player",
+      " {LIME}!rename <player> <name> {GREY}- {DEFAULT}rename a player",
+      " {LIME}!who {GREY}/ {LIME}!players {GREY}/ {LIME}!disconnected {GREY}- {DEFAULT}player info",
+      " {LIME}!history <player> {GREY}- {DEFAULT}penalty history",
+      " {GREY}Target: name, #userid or {LIME}@all @t @ct @alive @dead @bots @human @me",
+      " {GREY}Next page: {LIME}!sahelp2"
+    ],
+    "PrintTo": 0
+  },
+  {
+    "Title": "Help: SimpleAdmin 2/2",
+    "Description": "Help page",
+    "Command": "sahelp2",
+    "Message": [
+      "{GOLD}========== {BLUE}SIMPLEADMIN 2/2 {RED}(admin) {GOLD}==========",
+      " {LIME}!freeze {GREY}/ {LIME}!unfreeze <target> [sec] {GREY}- {DEFAULT}e.g. {LIME}!freeze @all 10",
+      " {LIME}!noclip {GREY}/ {LIME}!godmode <target> {GREY}- {DEFAULT}fly / god mode",
+      " {LIME}!hp {GREY}/ {LIME}!speed {GREY}/ {LIME}!gravity <target> <value> {GREY}- {DEFAULT}health / speed / gravity",
+      " {LIME}!give <target> <weapon> {GREY}/ {LIME}!strip {GREY}- {DEFAULT}give / remove weapons",
+      " {LIME}!money {GREY}/ {LIME}!resize <target> <value> {GREY}- {DEFAULT}money / model size",
+      " {LIME}!tp {GREY}/ {LIME}!bring <target> {GREY}- {DEFAULT}go to / bring a player",
+      " {LIME}!say {GREY}/ {LIME}!csay {GREY}/ {LIME}!hsay {GREY}/ {LIME}!achat {GREY}- {DEFAULT}chat / center / hint / admins only",
+      " {LIME}!rg {GREY}- {DEFAULT}restart the game",
+      " {LIME}!hide {GREY}- {DEFAULT}hide yourself from the scoreboard",
+      " {GREY}Owner only: {LIME}!sarcon <command>{GREY}, {LIME}!addadmin"
+    ],
+    "PrintTo": 0
+  },
+  {
+    "Title": "Kick bots",
+    "Description": "bot_quota 0 and bot_kick",
+    "Command": "bot_kick,bk",
+    "Message": "{GOLD}[Server] {DEFAULT}All bots {RED}KICKED",
+    "PrintTo": 1,
+    "ServerCommands": [
+      "bot_quota 0",
+      "bot_kick"
+    ],
+    "Permission": {
+      "RequiresAllPermissions": false,
+      "PermissionList": [
+        "@css/config"
+      ]
+    }
+  },
+  {
+    "Title": "Bunny hop ON",
+    "Description": "Run openbunny.cfg",
+    "Command": "openbunny,bon",
+    "Message": "{GOLD}[Server] {DEFAULT}Bunny hop {GREEN}OPENED",
+    "PrintTo": 1,
+    "ServerCommands": [
+      "exec openbunny"
+    ],
+    "Permission": {
+      "RequiresAllPermissions": false,
+      "PermissionList": [
+        "@css/config"
+      ]
+    }
+  },
+  {
+    "Title": "Bunny hop OFF",
+    "Description": "Run closebunny.cfg",
+    "Command": "closebunny,boff",
+    "Message": "{GOLD}[Server] {DEFAULT}Bunny hop {RED}CLOSED",
+    "PrintTo": 1,
+    "ServerCommands": [
+      "exec closebunny"
+    ],
+    "Permission": {
+      "RequiresAllPermissions": false,
+      "PermissionList": [
+        "@css/config"
+      ]
+    }
+  },
+  {
+    "Title": "Team auto balance ON",
+    "Description": "mp_autoteambalance 1 + mp_limitteams 1",
+    "Command": "autobalanceon,abon",
+    "Message": "{GOLD}[Server] {DEFAULT}Team auto balance {GREEN}ON",
+    "PrintTo": 1,
+    "ServerCommands": [
+      "mp_autoteambalance 1",
+      "mp_limitteams 1"
+    ],
+    "Permission": {
+      "RequiresAllPermissions": false,
+      "PermissionList": [
+        "@css/config"
+      ]
+    }
+  },
+  {
+    "Title": "Team auto balance OFF",
+    "Description": "mp_autoteambalance 0 + mp_limitteams 0",
+    "Command": "autobalanceoff,aboff",
+    "Message": "{GOLD}[Server] {DEFAULT}Team auto balance {RED}OFF",
+    "PrintTo": 1,
+    "ServerCommands": [
+      "mp_autoteambalance 0",
+      "mp_limitteams 0"
+    ],
+    "Permission": {
+      "RequiresAllPermissions": false,
+      "PermissionList": [
+        "@css/config"
+      ]
+    }
+  },
+  {
+    "Title": "Add T bot",
+    "Description": "bot_add_t",
+    "Command": "bot_add_t,bat",
+    "Message": "{GOLD}[Server] {DEFAULT}T bot {GREEN}ADDED",
+    "PrintTo": 1,
+    "ServerCommands": [
+      "bot_add_t"
+    ],
+    "Permission": {
+      "RequiresAllPermissions": false,
+      "PermissionList": [
+        "@css/config"
+      ]
+    }
+  },
+  {
+    "Title": "Add CT bot",
+    "Description": "bot_add_ct",
+    "Command": "bot_add_ct,bac",
+    "Message": "{GOLD}[Server] {DEFAULT}CT bot {GREEN}ADDED",
+    "PrintTo": 1,
+    "ServerCommands": [
+      "bot_add_ct"
+    ],
+    "Permission": {
+      "RequiresAllPermissions": false,
+      "PermissionList": [
+        "@css/config"
+      ]
+    }
+  },
+  {
+    "Title": "Restart game",
+    "Description": "mp_restartgame 1",
+    "Command": "mp_restartgame",
+    "Message": "{GOLD}[Server] {DEFAULT}Game {BLUE}RESTARTING",
+    "PrintTo": 1,
+    "ServerCommands": [
+      "mp_restartgame 1"
+    ],
+    "Permission": {
+      "RequiresAllPermissions": false,
+      "PermissionList": [
+        "@css/config"
+      ]
+    }
+  },
+  {
+    "Title": "End warmup",
+    "Description": "mp_warmup_end",
+    "Command": "mp_warmup_end,we",
+    "Message": "{GOLD}[Server] {DEFAULT}Warmup {BLUE}ENDED",
+    "PrintTo": 1,
+    "ServerCommands": [
+      "mp_warmup_end"
+    ],
+    "Permission": {
+      "RequiresAllPermissions": false,
+      "PermissionList": [
+        "@css/config"
+      ]
+    }
+  },
+  {
+    "Title": "Swap teams",
+    "Description": "mp_swapteams",
+    "Command": "mp_swapteams,swapteams",
+    "Message": "{GOLD}[Server] {DEFAULT}Teams {BLUE}SWAPPED",
+    "PrintTo": 1,
+    "ServerCommands": [
+      "mp_swapteams"
+    ],
+    "Permission": {
+      "RequiresAllPermissions": false,
+      "PermissionList": [
+        "@css/config"
+      ]
+    }
+  },
+  {
+    "Title": "Pause match",
+    "Description": "mp_pause_match",
+    "Command": "mp_pause_match,pm",
+    "Message": "{GOLD}[Server] {DEFAULT}Match will {RED}PAUSE {DEFAULT}at the next round start (freeze time)",
+    "PrintTo": 1,
+    "ServerCommands": [
+      "mp_pause_match"
+    ],
+    "Permission": {
+      "RequiresAllPermissions": false,
+      "PermissionList": [
+        "@css/config"
+      ]
+    }
+  },
+  {
+    "Title": "Unpause match",
+    "Description": "mp_unpause_match",
+    "Command": "mp_unpause_match,upm",
+    "Message": "{GOLD}[Server] {DEFAULT}Match {GREEN}UNPAUSED",
+    "PrintTo": 1,
+    "ServerCommands": [
+      "mp_unpause_match"
+    ],
+    "Permission": {
+      "RequiresAllPermissions": false,
+      "PermissionList": [
+        "@css/config"
+      ]
+    }
+  },
+  {
+    "Title": "Cheats ON",
+    "Description": "sv_cheats 1",
+    "Command": "sv_cheats_on,ch1",
+    "Message": "{GOLD}[Server] {DEFAULT}Cheats {GREEN}ENABLED",
+    "PrintTo": 1,
+    "ServerCommands": [
+      "sv_cheats 1"
+    ],
+    "Permission": {
+      "RequiresAllPermissions": false,
+      "PermissionList": [
+        "@css/config"
+      ]
+    }
+  },
+  {
+    "Title": "Cheats OFF",
+    "Description": "sv_cheats 0",
+    "Command": "sv_cheats_off,ch0",
+    "Message": "{GOLD}[Server] {DEFAULT}Cheats {RED}DISABLED",
+    "PrintTo": 1,
+    "ServerCommands": [
+      "sv_cheats 0"
+    ],
+    "Permission": {
+      "RequiresAllPermissions": false,
+      "PermissionList": [
+        "@css/config"
+      ]
+    }
+  },
+  {
+    "Title": "Infinite ammo 0",
+    "Description": "sv_infinite_ammo 0 (off)",
+    "Command": "sv_infinite_ammo_0,ia0",
+    "Message": "{GOLD}[Server] {DEFAULT}Infinite ammo {RED}DISABLED",
+    "PrintTo": 1,
+    "ServerCommands": [
+      "sv_infinite_ammo 0"
+    ],
+    "Permission": {
+      "RequiresAllPermissions": false,
+      "PermissionList": [
+        "@css/config"
+      ]
+    }
+  },
+  {
+    "Title": "Infinite ammo 1",
+    "Description": "sv_infinite_ammo 1 (ammo + grenades)",
+    "Command": "sv_infinite_ammo_1,ia1",
+    "Message": "{GOLD}[Server] {DEFAULT}Infinite ammo {GREEN}ON {DEFAULT}(ammo + grenades)",
+    "PrintTo": 1,
+    "ServerCommands": [
+      "sv_infinite_ammo 1"
+    ],
+    "Permission": {
+      "RequiresAllPermissions": false,
+      "PermissionList": [
+        "@css/config"
+      ]
+    }
+  },
+  {
+    "Title": "Infinite ammo 2",
+    "Description": "sv_infinite_ammo 2 (magazine only)",
+    "Command": "sv_infinite_ammo_2,ia2",
+    "Message": "{GOLD}[Server] {DEFAULT}Infinite ammo {GREEN}ON {DEFAULT}(magazine only)",
+    "PrintTo": 1,
+    "ServerCommands": [
+      "sv_infinite_ammo 2"
+    ],
+    "Permission": {
+      "RequiresAllPermissions": false,
+      "PermissionList": [
+        "@css/config"
+      ]
+    }
+  },
+  {
+    "Title": "Parachute ON",
+    "Description": "Run openparachute.cfg",
+    "Command": "openparachute,pon",
+    "Message": "{GOLD}[Server] {DEFAULT}Parachute {GREEN}OPENED",
+    "PrintTo": 0,
+    "ServerCommands": [
+      "exec openparachute"
+    ],
+    "Permission": {
+      "RequiresAllPermissions": false,
+      "PermissionList": [
+        "@css/config"
+      ]
+    }
+  },
+  {
+    "Title": "Parachute OFF",
+    "Description": "Run closeparachute.cfg",
+    "Command": "closeparachute,poff",
+    "Message": "{GOLD}[Server] {DEFAULT}Parachute {RED}CLOSED",
+    "PrintTo": 0,
+    "ServerCommands": [
+      "exec closeparachute"
+    ],
+    "Permission": {
+      "RequiresAllPermissions": false,
+      "PermissionList": [
+        "@css/config"
+      ]
+    }
+  },
+  {
+    "Title": "Demo recording ON",
+    "Description": "MatchZy records the next match that goes live",
+    "Command": "demoon,rec",
+    "Message": "{GOLD}[Server] {DEFAULT}Demo recording {GREEN}ON{DEFAULT}: the next match will be recorded",
+    "PrintTo": 1,
+    "ServerCommands": [
+      "matchzy_demo_recording_enabled true"
+    ],
+    "Permission": {
+      "RequiresAllPermissions": false,
+      "PermissionList": [
+        "@css/config"
+      ]
+    }
+  },
+  {
+    "Title": "Demo recording OFF",
+    "Description": "MatchZy does not record matches",
+    "Command": "demooff,norec",
+    "Message": "{GOLD}[Server] {DEFAULT}Demo recording {RED}OFF",
+    "PrintTo": 1,
+    "ServerCommands": [
+      "matchzy_demo_recording_enabled false"
+    ],
+    "Permission": {
+      "RequiresAllPermissions": false,
+      "PermissionList": [
+        "@css/config"
+      ]
+    }
+  },
+  {
+    "Title": "Retake scramble ON",
+    "Description": "Retake toggle",
+    "Command": "retakes_scramble_on,scron",
+    "Message": "{GOLD}[Server] {DEFAULT}Retake team scramble after 5 T wins {GREEN}ON",
+    "PrintTo": 1,
+    "ServerCommands": [
+      "retakes_scramble_enabled 1"
+    ],
+    "Permission": {
+      "RequiresAllPermissions": false,
+      "PermissionList": [
+        "@css/config"
+      ]
+    }
+  },
+  {
+    "Title": "Retake scramble OFF",
+    "Description": "Retake toggle",
+    "Command": "retakes_scramble_off,scroff",
+    "Message": "{GOLD}[Server] {DEFAULT}Retake team scramble after 5 T wins {RED}OFF",
+    "PrintTo": 1,
+    "ServerCommands": [
+      "retakes_scramble_enabled 0"
+    ],
+    "Permission": {
+      "RequiresAllPermissions": false,
+      "PermissionList": [
+        "@css/config"
+      ]
+    }
+  },
+  {
+    "Title": "Retake rotation ON",
+    "Description": "Retake toggle",
+    "Command": "retakes_rotation_on,roton",
+    "Message": "{GOLD}[Server] {DEFAULT}Retake round-end rotation and team balance {GREEN}ON",
+    "PrintTo": 1,
+    "ServerCommands": [
+      "retakes_balance_enabled 1"
+    ],
+    "Permission": {
+      "RequiresAllPermissions": false,
+      "PermissionList": [
+        "@css/config"
+      ]
+    }
+  },
+  {
+    "Title": "Retake rotation OFF",
+    "Description": "Retake toggle",
+    "Command": "retakes_rotation_off,rotoff",
+    "Message": "{GOLD}[Server] {DEFAULT}Retake round-end rotation and team balance {RED}OFF",
+    "PrintTo": 1,
+    "ServerCommands": [
+      "retakes_balance_enabled 0"
+    ],
+    "Permission": {
+      "RequiresAllPermissions": false,
+      "PermissionList": [
+        "@css/config"
+      ]
+    }
+  },
+  {
+    "Title": "Mode: Free Play",
+    "Description": "css_mode \"Free Play\" (shortcut, see !hmodes)",
+    "Command": "freeplay",
+    "Message": "{GOLD}[Server] {DEFAULT}Changing the mode to {LIME}Free Play",
+    "PrintTo": 1,
+    "ServerCommands": [
+      "css_mode \"Free Play\""
+    ],
+    "Permission": {
+      "RequiresAllPermissions": false,
+      "PermissionList": [
+        "@css/changemap"
+      ]
+    }
+  },
+  {
+    "Title": "Mode: Free Play Rounds",
+    "Description": "css_mode \"Free Play Rounds\" (shortcut, see !hmodes)",
+    "Command": "freeplayrounds,fpr",
+    "Message": "{GOLD}[Server] {DEFAULT}Changing the mode to {LIME}Free Play Rounds",
+    "PrintTo": 1,
+    "ServerCommands": [
+      "css_mode \"Free Play Rounds\""
+    ],
+    "Permission": {
+      "RequiresAllPermissions": false,
+      "PermissionList": [
+        "@css/changemap"
+      ]
+    }
+  },
+  {
+    "Title": "Mode: Casual",
+    "Description": "css_mode \"Casual\" (shortcut, see !hmodes)",
+    "Command": "casual",
+    "Message": "{GOLD}[Server] {DEFAULT}Changing the mode to {LIME}Casual",
+    "PrintTo": 1,
+    "ServerCommands": [
+      "css_mode \"Casual\""
+    ],
+    "Permission": {
+      "RequiresAllPermissions": false,
+      "PermissionList": [
+        "@css/changemap"
+      ]
+    }
+  },
+  {
+    "Title": "Mode: Competitive",
+    "Description": "css_mode \"Competitive\" (shortcut, see !hmodes)",
+    "Command": "competitive,comp",
+    "Message": "{GOLD}[Server] {DEFAULT}Changing the mode to {LIME}Competitive",
+    "PrintTo": 1,
+    "ServerCommands": [
+      "css_mode \"Competitive\""
+    ],
+    "Permission": {
+      "RequiresAllPermissions": false,
+      "PermissionList": [
+        "@css/changemap"
+      ]
+    }
+  },
+  {
+    "Title": "Mode: Wingman",
+    "Description": "css_mode \"Wingman\" (shortcut, see !hmodes)",
+    "Command": "wingman",
+    "Message": "{GOLD}[Server] {DEFAULT}Changing the mode to {LIME}Wingman",
+    "PrintTo": 1,
+    "ServerCommands": [
+      "css_mode \"Wingman\""
+    ],
+    "Permission": {
+      "RequiresAllPermissions": false,
+      "PermissionList": [
+        "@css/changemap"
+      ]
+    }
+  },
+  {
+    "Title": "Mode: Retake",
+    "Description": "css_mode \"Retake\" (shortcut, see !hmodes)",
+    "Command": "retake",
+    "Message": "{GOLD}[Server] {DEFAULT}Changing the mode to {LIME}Retake",
+    "PrintTo": 1,
+    "ServerCommands": [
+      "css_mode \"Retake\""
+    ],
+    "Permission": {
+      "RequiresAllPermissions": false,
+      "PermissionList": [
+        "@css/changemap"
+      ]
+    }
+  },
+  {
+    "Title": "Mode: FACEIT FF On",
+    "Description": "css_mode \"FACEIT FF On\" (shortcut, see !hmodes)",
+    "Command": "faceit,faceitffon",
+    "Message": "{GOLD}[Server] {DEFAULT}Changing the mode to {LIME}FACEIT FF On",
+    "PrintTo": 1,
+    "ServerCommands": [
+      "css_mode \"FACEIT FF On\""
+    ],
+    "Permission": {
+      "RequiresAllPermissions": false,
+      "PermissionList": [
+        "@css/changemap"
+      ]
+    }
+  },
+  {
+    "Title": "Mode: FACEIT FF Off",
+    "Description": "css_mode \"FACEIT FF Off\" (shortcut, see !hmodes)",
+    "Command": "faceitffoff",
+    "Message": "{GOLD}[Server] {DEFAULT}Changing the mode to {LIME}FACEIT FF Off",
+    "PrintTo": 1,
+    "ServerCommands": [
+      "css_mode \"FACEIT FF Off\""
+    ],
+    "Permission": {
+      "RequiresAllPermissions": false,
+      "PermissionList": [
+        "@css/changemap"
+      ]
+    }
+  },
+  {
+    "Title": "Mode: Utility Practice",
+    "Description": "css_mode \"Utility Practice\" (shortcut, see !hmodes)",
+    "Command": "utility",
+    "Message": "{GOLD}[Server] {DEFAULT}Changing the mode to {LIME}Utility Practice",
+    "PrintTo": 1,
+    "ServerCommands": [
+      "css_mode \"Utility Practice\""
+    ],
+    "Permission": {
+      "RequiresAllPermissions": false,
+      "PermissionList": [
+        "@css/changemap"
+      ]
+    }
+  },
+  {
+    "Title": "Mode: Deathmatch",
+    "Description": "css_mode \"Deathmatch\" (shortcut, see !hmodes)",
+    "Command": "deathmatch",
+    "Message": "{GOLD}[Server] {DEFAULT}Changing the mode to {LIME}Deathmatch",
+    "PrintTo": 1,
+    "ServerCommands": [
+      "css_mode \"Deathmatch\""
+    ],
+    "Permission": {
+      "RequiresAllPermissions": false,
+      "PermissionList": [
+        "@css/changemap"
+      ]
+    }
+  },
+  {
+    "Title": "Mode: Gun Game",
+    "Description": "css_mode \"Gun Game\" (shortcut, see !hmodes)",
+    "Command": "gungame",
+    "Message": "{GOLD}[Server] {DEFAULT}Changing the mode to {LIME}Gun Game",
+    "PrintTo": 1,
+    "ServerCommands": [
+      "css_mode \"Gun Game\""
+    ],
+    "Permission": {
+      "RequiresAllPermissions": false,
+      "PermissionList": [
+        "@css/changemap"
+      ]
+    }
+  },
+  {
+    "Title": "Mode: Arms Race",
+    "Description": "css_mode \"Arms Race\" (shortcut, see !hmodes)",
+    "Command": "armsrace",
+    "Message": "{GOLD}[Server] {DEFAULT}Changing the mode to {LIME}Arms Race",
+    "PrintTo": 1,
+    "ServerCommands": [
+      "css_mode \"Arms Race\""
+    ],
+    "Permission": {
+      "RequiresAllPermissions": false,
+      "PermissionList": [
+        "@css/changemap"
+      ]
+    }
+  },
+  {
+    "Title": "Mode: Rush",
+    "Description": "css_mode \"Rush\" (shortcut, see !hmodes)",
+    "Command": "rush",
+    "Message": "{GOLD}[Server] {DEFAULT}Changing the mode to {LIME}Rush",
+    "PrintTo": 1,
+    "ServerCommands": [
+      "css_mode \"Rush\""
+    ],
+    "Permission": {
+      "RequiresAllPermissions": false,
+      "PermissionList": [
+        "@css/changemap"
+      ]
+    }
+  },
+  {
+    "Title": "Mode: AWP",
+    "Description": "css_mode \"AWP\" (shortcut, see !hmodes)",
+    "Command": "awponly",
+    "Message": "{GOLD}[Server] {DEFAULT}Changing the mode to {LIME}AWP",
+    "PrintTo": 1,
+    "ServerCommands": [
+      "css_mode \"AWP\""
+    ],
+    "Permission": {
+      "RequiresAllPermissions": false,
+      "PermissionList": [
+        "@css/changemap"
+      ]
+    }
+  },
+  {
+    "Title": "Mode: Aim",
+    "Description": "css_mode \"Aim\" (shortcut, see !hmodes)",
+    "Command": "aim",
+    "Message": "{GOLD}[Server] {DEFAULT}Changing the mode to {LIME}Aim",
+    "PrintTo": 1,
+    "ServerCommands": [
+      "css_mode \"Aim\""
+    ],
+    "Permission": {
+      "RequiresAllPermissions": false,
+      "PermissionList": [
+        "@css/changemap"
+      ]
+    }
+  }
+]
