@@ -1,7 +1,7 @@
 # Self-built plugins and local patches
 
-Plugins we build ourselves instead of using the release zip. Read this before updating any of them:
-a plain update from the release would silently drop our fixes.
+Plugins I build myself instead of using the release zip. Read this before updating any of them:
+a plain update from the release would silently drop my fixes.
 
 Every code change is marked with a `[LOCAL PATCH]` comment in the source, so
 `grep -rn "LOCAL PATCH" build/*-src` lists all of them.
@@ -37,7 +37,7 @@ has to be re-applied after every update until upstream offers the same option.
 - First version (2026-10-30) reloaded `_pluginState.Game.CurrentMap` with `ChangeMap`. That failed on workshop maps:
   when the map's real name differs from its `gamemodes_server.txt` name, CurrentMap has no workshop id, the change
   command fails and the engine loaded the next map instead. Do not go back to that.
-- Our config sets `"RepeatCurrentMapWhenNoVote": true` in `configs/plugins/GameModeManager/GameModeManager.json`
+- My config sets `"RepeatCurrentMapWhenNoVote": true` in `configs/plugins/GameModeManager/GameModeManager.json`
   and `mp_match_end_restart 1` in `cfg/settings/map_voting.cfg` (run by aim, awp, deathmatch and gungame settings).
 
 ### Patch 2: server crash when changing to the workshop map that is already loaded (bug fix)
@@ -112,7 +112,7 @@ The original release DLL is kept in `backups/MenuManagerAPI-1.0.3-release/`.
 ## CS2 Parachute
 
 Project state when patched (2026-10-30): last release 1.5.2 on 2024-04-02, last commit 2024-05-03.
-We build from main because it has 5 fixes after 1.5.2 (dead-player chute, unhandled exceptions, hostage option).
+I build from main because it has 5 fixes after 1.5.2 (dead-player chute, unhandled exceptions, hostage option).
 
 ### Patch 1: parachute broken after !pon until the player rejoins (bug fix)
 
@@ -140,7 +140,7 @@ The original release files are kept in `backups/Parachute-1.5.2-release/`.
 
 ## When a new upstream version comes out
 
-1. Read its changelog / diff: if the bug is fixed upstream, drop our patch and use the release as is
+1. Read its changelog / diff: if the bug is fixed upstream, drop my patch and use the release as is
    (then remove the plugin's row above and its `BUILT_FROM_COMMIT.txt`).
 2. Otherwise download the new source into `build/<name>-src`, then apply the patch from the repo root:
    `git apply --ignore-whitespace build/patches/<Plugin>.patch`

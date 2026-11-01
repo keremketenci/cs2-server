@@ -1,4 +1,4 @@
-# MenuManagerAPI: redo our changes by hand
+# MenuManagerAPI: redo my changes by hand
 
 Use this after downloading a new MenuManagerAPI version, when `MenuManagerAPI.patch` does not apply
 or you want to do it yourself. Background and reasons: `README.md#menumanagerapi`.

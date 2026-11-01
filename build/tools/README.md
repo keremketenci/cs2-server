@@ -8,12 +8,12 @@ After every manual plugin change, update it as described below, or the check rep
 
 | Entry | Compared with | "up to date" when |
 |---|---|---|
-| no `repo` (our own plugin) | nothing | always shown as "own plugin" |
+| no `repo` (my own plugin) | nothing | always shown as "own plugin" |
 | `installed` is a tag, e.g. `v2.0.1` | latest GitHub release | release tag equals `installed` (a leading `v` / `build-` is ignored) |
 | same, plus `patched` (self-built from a release) | latest release, then the commits on main after it | release is the same and no commit on main after the tag (or after `reviewedMain`) |
 | `installed` is `commit:<sha>` (self-built from main) | commits on main after that commit | no commit on main after it (or after `reviewedMain`) |
 
-The check only says *something new exists upstream*. Whether it fixes what we patched is decided by hand
+The check only says *something new exists upstream*. Whether it fixes what I patched is decided by hand
 (step 0 in the plugin's guide, `build/patches/<Plugin>.md`).
 
 ## Fields
@@ -22,11 +22,11 @@ The check only says *something new exists upstream*. Whether it fixes what we pa
 |---|---|
 | `name` | Shown in the table |
 | `folder` | Where the plugin lives under `addons/counterstrikesharp/` (info only) |
-| `repo` | `owner/name` on GitHub, `""` for our own plugins |
-| `installed` | Release tag we installed, or `commit:<full sha>` when self-built from main |
+| `repo` | `owner/name` on GitHub, `""` for my own plugins |
+| `installed` | Release tag I installed, or `commit:<full sha>` when self-built from main |
 | `keep` | Files and settings that must survive an update, printed when an update is available |
-| `patched` | Only for plugins we self-build with local changes: path of its guide `build/patches/<Plugin>.md` |
-| `reviewedMain` | Optional, only with `patched`: full sha of the last main commit we already reviewed (nothing relevant for us). Commits up to it are not reported again |
+| `patched` | Only for plugins I self-build with local changes: path of its guide `build/patches/<Plugin>.md` |
+| `reviewedMain` | Optional, only with `patched`: full sha of the last main commit I already reviewed (nothing relevant for me). Commits up to it are not reported again |
 
 ## After a manual update: what to change
 
@@ -66,7 +66,7 @@ Self-built plugins only. Set `reviewedMain` to the full sha of the newest main c
 
 Do not change `installed` for this: it must still say what is really installed.
 
-### 4. Upstream fixed our bug, the patch is dropped
+### 4. Upstream fixed my bug, the patch is dropped
 
 Install the release as a normal plugin, delete `patched` and `reviewedMain`, set `installed` to the release tag.
 Also remove the plugin from `build/patches/README.md` and delete its guide and `.patch` file.

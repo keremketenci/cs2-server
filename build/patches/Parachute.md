@@ -1,4 +1,4 @@
-# CS2 Parachute: redo our changes by hand
+# CS2 Parachute: redo my changes by hand
 
 Use this after downloading a new Parachute version, when `Parachute.patch` does not apply
 or you want to do it yourself. Background and reasons: `README.md#cs2-parachute`.

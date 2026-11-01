@@ -1,4 +1,4 @@
-# Retakes: redo our changes by hand
+# Retakes: redo my changes by hand
 
 Use this after downloading a new Retakes version, when `RetakesPlugin.patch` does not apply
 or you want to do it yourself. Background and reasons: `README.md#retakes`.
@@ -104,7 +104,7 @@ cd build/retakes-src/RetakesPlugin
 ```
 
 Output: `build/retakes-src/build-output/addons/counterstrikesharp/plugins/RetakesPlugin`.
-Install the new release files first (deps.json, lang ...), then copy only our `RetakesPlugin.dll` and `.pdb` over them in
+Install the new release files first (deps.json, lang ...), then copy only my `RetakesPlugin.dll` and `.pdb` over them in
 `custom_files/addons/counterstrikesharp/plugins/disabled/RetakesPlugin/`.
 
 ## Config that goes with it (already in custom_files, just check it is still there)

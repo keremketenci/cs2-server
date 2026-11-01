@@ -1,4 +1,4 @@
-# GameModeManager: redo our changes by hand
+# GameModeManager: redo my changes by hand
 
 Use this after downloading a new GameModeManager version, when `GameModeManager.patch` does not apply
 or you want to do it yourself. Background and reasons: `README.md#gamemodemanager`.

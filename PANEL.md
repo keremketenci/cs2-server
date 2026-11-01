@@ -23,7 +23,7 @@ $( [ "1" == "1" ] && printf '%s' ' -usercon' ) $( [ "1" == "1" ] || printf '%s' 
 +sv_hibernate_when_empty false
 ```
 
-`$( sh custom_files.sh >&2 )` is our own addition: it runs `48b4a3c2-.../custom_files.sh` (copies `custom_files/`
+`$( sh custom_files.sh >&2 )` is my own addition: it runs `48b4a3c2-.../custom_files.sh` (copies `custom_files/`
 into `game/csgo/`) before the game starts.
 
 ## Variables
@@ -37,7 +37,7 @@ into `game/csgo/`) before the game starts.
 | Map | `de_dust2` | Start map only, GameModeManager takes over after that |
 | Game Type / Game Mode | `3` / `0` (Custom) | GameModeManager modes run on the custom game mode (`cfg/gamemode_custom_server.cfg`) |
 | Metamod:Source | on | Needed by CounterStrikeSharp and MultiAddonManager |
-| CounterStrikeSharp | on | All our plugins |
+| CounterStrikeSharp | on | All my plugins |
 | SwiftlyS2 | off | Not used |
 | ModSharp | off | Not used, incompatible with CounterStrikeSharp |
 | Allow Prerelease Updates | off | Only stable CSS / Metamod |
@@ -51,7 +51,7 @@ into `game/csgo/`) before the game starts.
 | Server Password | empty | Public server |
 | Hibernate When Empty | off | Hibernation also pauses CounterStrikeSharp timers and GameModeManager's rotation |
 | Steam Web API Key | set (secret, read only) | `-authkey`, needed to download workshop maps |
-| Custom Files | `1` | Our addition to the egg (`CUSTOM_FILES_ENABLED`): `custom_files.sh` copies `custom_files/` on every start. Must stay on |
+| Custom Files | `1` | My addition to the egg (`CUSTOM_FILES_ENABLED`): `custom_files.sh` copies `custom_files/` on every start. Must stay on |
 
 ## Not in git
 
