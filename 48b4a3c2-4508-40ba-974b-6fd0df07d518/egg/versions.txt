@@ -1,2 +1,0 @@
-Metamod=git1481
-CSS=v1.0.376

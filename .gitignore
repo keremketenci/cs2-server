@@ -9,6 +9,8 @@
 # empty placeholder files from the egg
 /48b4a3c2-4508-40ba-974b-6fd0df07d518/egg/grep
 /48b4a3c2-4508-40ba-974b-6fd0df07d518/egg/ls
+# rewritten by the egg on every CSS / Metamod update (see PANEL.md)
+/48b4a3c2-4508-40ba-974b-6fd0df07d518/egg/versions.txt
 
 # --- Local only ---
 # Connection settings for sync-custom-files.bat (template: .env.example)
