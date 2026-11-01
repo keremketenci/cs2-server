@@ -6,14 +6,18 @@ a plain update from the release would silently drop our fixes.
 Every code change is marked with a `[LOCAL PATCH]` comment in the source, so
 `grep -rn "LOCAL PATCH" build/*-src` lists all of them.
 
+Each plugin also has a step-by-step guide to redo its changes by hand after an update
+(find this text, replace it with that code, build, install, test): the `<Plugin>.md` files in this folder,
+linked in the "Manual guide" column below. Keep the guide in sync whenever a patch changes.
+
 ## Overview
 
-| Plugin | Built from | Source | Patch file | Code changes |
-|---|---|---|---|---|
-| GameModeManager | `nickj609/GameModeManager` main, commit `0f354d1d569b91ea9fd9b7e37a54d0b3a5dd2e70` | `build/gmm-src` | `GameModeManager.patch` | 1 feature patch + 1 crash fix, see below (built from main because release v1.0.63 never loaded menus with Votes.Enabled and never refreshed !maps) |
-| MenuManagerAPI | `nickj609/MenuManagerAPI` tag v1.0.3, commit `79c307ef516d2b3de707f2e0e7a037923beb2cb5` | `build/mmapi-src` | `MenuManagerAPI.patch` | 2 bug fixes + 1 build fix, see below |
-| CS2 Parachute | `Franc1sco/CS2-Parachute` main, commit `c3be1bef3074ff4140e2fda97e13420dec5f47de` (5 commits after release 1.5.2) | `build/parachute-src` | `Parachute.patch` | 1 bug fix, see below |
-| Retakes | `B3none/cs2-retakes` tag 3.1.1, commit `2fde4a9cc21e791d6909b98bacc833aa5c54bdad` | `build/retakes-src` | `RetakesPlugin.patch` | 1 feature patch (in-game toggles), see below |
+| Plugin | Built from | Source | Patch file | Manual guide | Code changes |
+|---|---|---|---|---|---|
+| GameModeManager | `nickj609/GameModeManager` main, commit `0f354d1d569b91ea9fd9b7e37a54d0b3a5dd2e70` | `build/gmm-src` | `GameModeManager.patch` | [GameModeManager.md](GameModeManager.md) | 1 feature patch + 1 crash fix, see below (built from main because release v1.0.63 never loaded menus with Votes.Enabled and never refreshed !maps) |
+| MenuManagerAPI | `nickj609/MenuManagerAPI` tag v1.0.3, commit `79c307ef516d2b3de707f2e0e7a037923beb2cb5` | `build/mmapi-src` | `MenuManagerAPI.patch` | [MenuManagerAPI.md](MenuManagerAPI.md) | 2 bug fixes + 1 build fix, see below |
+| CS2 Parachute | `Franc1sco/CS2-Parachute` main, commit `c3be1bef3074ff4140e2fda97e13420dec5f47de` (5 commits after release 1.5.2) | `build/parachute-src` | `Parachute.patch` | [Parachute.md](Parachute.md) | 1 bug fix, see below |
+| Retakes | `B3none/cs2-retakes` tag 3.1.1, commit `2fde4a9cc21e791d6909b98bacc833aa5c54bdad` | `build/retakes-src` | `RetakesPlugin.patch` | [RetakesPlugin.md](RetakesPlugin.md) | 1 feature patch (in-game toggles), see below |
 
 ## GameModeManager
 
@@ -140,8 +144,8 @@ The original release files are kept in `backups/Parachute-1.5.2-release/`.
    (then remove the plugin's row above and its `BUILT_FROM_COMMIT.txt`).
 2. Otherwise download the new source into `build/<name>-src`, then apply the patch from the repo root:
    `git apply --ignore-whitespace build/patches/<Plugin>.patch`
-   (or `patch -p1 -l < ...`). If it does not apply cleanly, redo the change by hand using the
-   description above and the `[LOCAL PATCH]` comments.
+   (or `patch -p1 -l < ...`). If it does not apply cleanly, redo the changes by hand with the plugin's guide
+   (`build/patches/<Plugin>.md`).
 3. Build, install, update the "Built from" column, `BUILT_FROM_COMMIT.txt` in the plugin folder
    and `installed` in `build/tools/plugins.json`.
 4. Regenerate the patch file: `diff -ruN -x bin -x obj <pristine>/<Plugin> build/<name>-src/<Plugin> > build/patches/<Plugin>.patch`
