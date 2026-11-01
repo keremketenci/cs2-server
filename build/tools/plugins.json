@@ -3,7 +3,8 @@
     "Installed plugins and where they come from. Update 'installed' after every plugin update.",
     "keep: files inside the plugin folder (or elsewhere) that hold settings and must survive an update.",
     "CounterStrikeSharp and Metamod are not listed: the KitsuneLab egg updates them on every start.",
-    "patched: plugin is self-built with local changes, read build/patches/README.md before updating it."
+    "patched: plugin is self-built with local changes, the value is its step-by-step guide (build/patches/<Plugin>.md). Read it before updating.",
+    "reviewedMain: (self-built from a release) last upstream main commit we already reviewed, the update check only reports newer commits."
   ],
   "plugins": [
     {
@@ -69,7 +70,7 @@
       "keep": [
         "configs/plugins/Parachute/*"
       ],
-      "patched": "build/patches/README.md#cs2-parachute"
+      "patched": "build/patches/Parachute.md"
     },
     {
       "name": "MenuManager [Core]",
@@ -91,7 +92,7 @@
       "name": "AnyBaseLib (shared)",
       "folder": "shared/AnyBaseLib",
       "repo": "NickFox007/AnyBaseLibCS2",
-      "installed": "unknown",
+      "installed": "0.9.4",
       "keep": []
     },
     {
@@ -112,7 +113,7 @@
         "configs/plugins/GameModeManager/GameModeManager.json",
         "never copy shared/ DLLs into the plugin folder"
       ],
-      "patched": "build/patches/README.md#gamemodemanager"
+      "patched": "build/patches/GameModeManager.md"
     },
     {
       "name": "MenuManagerAPI (self-built)",
@@ -122,7 +123,8 @@
       "keep": [
         "copy only MenuManagerAPI.dll/.pdb, never shared/ or PlayerSettings from bin/"
       ],
-      "patched": "build/patches/README.md#menumanagerapi"
+      "patched": "build/patches/MenuManagerAPI.md",
+      "reviewedMain": "ccab9728edb3bc480ec9236fd1286e79a9e1792e"
     },
     {
       "name": "CS2_ExecAfter",
@@ -224,7 +226,7 @@
         "ModuleName \"Retakes Plugin\" (modes/unload_plugins.cfg)",
         "CustomCommands !scron/!scroff/!roton/!rotoff need the patch (retakes_scramble_enabled / retakes_balance_enabled)"
       ],
-      "patched": "build/patches/README.md#retakes"
+      "patched": "build/patches/RetakesPlugin.md"
     },
     {
       "name": "Retakes Weapon Allocator (!guns, votes)",

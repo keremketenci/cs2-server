@@ -133,5 +133,5 @@ Do NOT copy the `shared/` or `plugins/PlayerSettings` folders from `bin/`: the s
 
 ## Afterwards
 
-Update `README.md` ("Built from" column), `COMMIT.txt` in `build/mmapi-src`, `installed` in `build/tools/plugins.json`,
-and regenerate `MenuManagerAPI.patch` (step 4 in `README.md`).
+Update `README.md` ("Built from" column), `COMMIT.txt` in `build/mmapi-src`, `installed` in `build/tools/plugins.json`
+(and remove its `reviewedMain` line there, or set it to the main commit you built from), and regenerate `MenuManagerAPI.patch` (step 4 in `README.md`).
