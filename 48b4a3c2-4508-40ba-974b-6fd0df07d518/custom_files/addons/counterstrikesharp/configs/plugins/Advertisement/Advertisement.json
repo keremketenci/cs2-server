@@ -1,8 +1,12 @@
 {
   "PrintToCenterHtml": false,
-  "HtmlCenterDuration": 5,
+  "HtmlCenterDuration": 7,
   "ShowHtmlWhenDead": false,
-  "WelcomeMessage": null,
+  "WelcomeMessage": {
+    "MessageType": 2,
+    "Message": "<font color='#FFD700'>Welcome to Ghost Territory, {PLAYERNAME}!</font><br><font color='#7CFC00'>cs2.keremketenci.com</font><br><font color='#FFFFFF'>Type !help for commands</font>",
+    "DisplayDelay": 5
+  },
   "Ads": [
     {
       "Interval": 180,
