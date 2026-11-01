@@ -188,10 +188,12 @@
       "name": "Advertisement (!rtv reminder)",
       "folder": "plugins/Advertisement",
       "repo": "partiusfabaa/cs2-advertisement",
-      "installed": "v2.0.0",
+      "installed": "v2.0.1",
       "keep": [
         "configs/plugins/Advertisement/Advertisement.json",
-        "cfg/modes/*.cfg: unloaded in unload_plugins.cfg, loaded again in RTV modes (freeplay, deathmatch, gungame, awp, aim)"
+        "cfg/modes/*.cfg: unloaded in unload_plugins.cfg, loaded again in RTV modes (freeplay, deathmatch, gungame, awp, aim)",
+        "PanoramaManager.dll is part of the plugin since v2.0.1, always replace it together with Advertisement.dll",
+        "Panorama cards stay off (no Panorama* keys in our config = PanoramaEnabled false): they need the Workshop addon 3830960508 mounted"
       ]
     },
     {
