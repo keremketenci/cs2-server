@@ -31,7 +31,7 @@ into `game/csgo/`) before the game starts.
 | Variable | Value | Why |
 |---|---|---|
 | Max Players | `12` | |
-| Disable Updates | `1` | CS2, CounterStrikeSharp and Metamod update on every start. A CS2 update can break plugins until CSS catches up |
+| Disable Updates | `0` | `SRCDS_STOP_UPDATE`: skips only the SteamCMD CS2 update (and Validate Install). Metamod and CounterStrikeSharp still update on every start. After a Valve CS2 update players cannot join until this is set to `0` for one restart |
 | Validate Install | `0` | Set to `1` for one start only when game files are broken |
 | Game Server Login Token (GSLT) | set (secret) | Public server listing. Created at steamcommunity.com/dev/managegameservers |
 | Map | `de_dust2` | Start map only, GameModeManager takes over after that |
