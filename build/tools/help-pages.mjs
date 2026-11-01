@@ -43,7 +43,7 @@ const pages = [
       adminRow('!modes2 {GREY}/ {LIME}!allmodes', 'switch the game mode, stay on this map'),
       adminRow('!hmodes', 'one command per mode: !awponly, !retake, !wingman ...'),
       adminRow('!maps', 'change the map (maps of the current mode)'),
-      adminRow('!maps2 {GREY}/ {LIME}!allmaps', 'any server map by category, keeps the current mode'),
+      adminRow('!maps2 {GREY}/ {LIME}!allmaps', 'maps of every mode (pages = !modes), keeps the current mode'),
       adminRow('!map <name>', 'change to a map by name'),
       adminRow('!settings', 'game settings: buy anywhere, respawn, bots ...'),
     ],

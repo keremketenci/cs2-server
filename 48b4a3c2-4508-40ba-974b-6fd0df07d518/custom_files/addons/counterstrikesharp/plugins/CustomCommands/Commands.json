@@ -34,7 +34,7 @@
       " {RED}* {LIME}!modes2 {GREY}/ {LIME}!allmodes {GREY}- {DEFAULT}switch the game mode, stay on this map",
       " {RED}* {LIME}!hmodes {GREY}- {DEFAULT}one command per mode: !awponly, !retake, !wingman ...",
       " {RED}* {LIME}!maps {GREY}- {DEFAULT}change the map (maps of the current mode)",
-      " {RED}* {LIME}!maps2 {GREY}/ {LIME}!allmaps {GREY}- {DEFAULT}any server map by category, keeps the current mode",
+      " {RED}* {LIME}!maps2 {GREY}/ {LIME}!allmaps {GREY}- {DEFAULT}maps of every mode (pages = !modes), keeps the current mode",
       " {RED}* {LIME}!map <name> {GREY}- {DEFAULT}change to a map by name",
       " {RED}* {LIME}!settings {GREY}- {DEFAULT}game settings: buy anywhere, respawn, bots ..."
     ],

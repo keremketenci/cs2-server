@@ -24,8 +24,11 @@ set "LOCAL=%~dp048b4a3c2-4508-40ba-974b-6fd0df07d518\custom_files"
 set "REMOTE=/custom_files"
 set "CFG=addons/counterstrikesharp/configs/plugins"
 
+rem LocalDirectory override: the saved WinSCP site may still point to an old copy of this folder
+rem (open fails with "Error changing directory" when that folder no longer exists).
+
 "%WINSCP_PATH%" /command ^
-  "open ""%WINSCP_SESSION%""" ^
+  "open ""%WINSCP_SESSION%"" -rawsettings LocalDirectory=""%LOCAL%""" ^
   "synchronize local -criteria=none ""%LOCAL%\addons\counterstrikesharp\configs\plugins"" ""%REMOTE%/%CFG%""" ^
   "synchronize remote -delete ""%LOCAL%"" ""%REMOTE%""" ^
   "keepuptodate -delete ""%LOCAL%"" ""%REMOTE%"""

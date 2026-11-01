@@ -278,12 +278,12 @@
       "name": "All Maps (our own)",
       "folder": "plugins/AllMaps",
       "repo": "",
-      "installed": "1.1.1",
+      "installed": "1.2.1",
       "keep": [
         "source: build/plugins/AllMaps",
-        "!maps2 / !allmaps (@css/changemap): categories = map groups from gamemodes_server.txt, map change via GameModeManager css_map",
+        "!maps2 / !allmaps (@css/changemap): one page per GameModeManager mode with its maps (read from GameModeManager, no own list), map change via the GameModeManager API",
         "!modes2 / !allmodes: exec the mode cfg + reload the current map (needs GameModeManager.Shared game_mode:api)",
-        "configs/plugins/AllMaps/AllMaps.json: Permission, Categories (Wingman maps = mg_valve_wingman, separate from Valve maps)"
+        "configs/plugins/AllMaps/AllMaps.json: Permission only (Categories removed in 1.2.0)"
       ]
     },
     {

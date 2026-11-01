@@ -156,11 +156,19 @@
         ]
       },
       {
-        "Name": "Wingman",
-        "Config": "modes/wingman.cfg",
-        "DefaultMap": "de_inferno",
+        "Name": "AWP",
+        "Config": "modes/awp.cfg",
+        "DefaultMap": "3367343580",
         "MapGroups": [
-          "mg_valve_wingman"
+          "mg_awp"
+        ]
+      },
+      {
+        "Name": "Aim",
+        "Config": "modes/aim.cfg",
+        "DefaultMap": "3199551320",
+        "MapGroups": [
+          "mg_aim"
         ]
       },
       {
@@ -188,19 +196,19 @@
         ]
       },
       {
-        "Name": "Utility Practice",
-        "Config": "modes/utility.cfg",
-        "DefaultMap": "de_dust2",
+        "Name": "Wingman",
+        "Config": "modes/wingman.cfg",
+        "DefaultMap": "de_inferno",
         "MapGroups": [
-          "mg_utility"
+          "mg_valve_wingman"
         ]
       },
       {
-        "Name": "Deathmatch",
-        "Config": "modes/deathmatch.cfg",
-        "DefaultMap": "de_dust2",
+        "Name": "Rush",
+        "Config": "modes/rush.cfg",
+        "DefaultMap": "rush_001",
         "MapGroups": [
-          "mg_dm"
+          "mg_rush"
         ]
       },
       {
@@ -220,27 +228,19 @@
         ]
       },
       {
-        "Name": "Rush",
-        "Config": "modes/rush.cfg",
-        "DefaultMap": "rush_001",
+        "Name": "Deathmatch",
+        "Config": "modes/deathmatch.cfg",
+        "DefaultMap": "de_dust2",
         "MapGroups": [
-          "mg_rush"
+          "mg_dm"
         ]
       },
       {
-        "Name": "AWP",
-        "Config": "modes/awp.cfg",
-        "DefaultMap": "3367343580",
+        "Name": "Utility Practice",
+        "Config": "modes/utility.cfg",
+        "DefaultMap": "de_dust2",
         "MapGroups": [
-          "mg_awp"
-        ]
-      },
-      {
-        "Name": "Aim",
-        "Config": "modes/aim.cfg",
-        "DefaultMap": "3199551320",
-        "MapGroups": [
-          "mg_aim"
+          "mg_utility"
         ]
       }
     ]
