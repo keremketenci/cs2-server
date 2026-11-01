@@ -13,7 +13,7 @@ The game itself is not in this repository.
 | `build/plugins/` | Source of our own plugins (OnlineAdmins, CheatsGuard, MoveDebug, AllMaps, GrenadeRebuy) |
 | `build/*-src/` | Source of the third-party plugins we build ourselves with local patches |
 | `build/patches/` | **Read before updating a plugin**: what we changed in third-party plugins and why, with `.patch` files |
-| `build/tools/plugins.json` | Installed plugins, versions, repos and the files to keep when updating |
+| `build/tools/plugins.json` | Installed plugins, versions, repos and the files to keep when updating. What to change in it after an update: `build/tools/README.md` |
 | `build/tools/check-updates.mjs` | Update check (run `check-plugin-updates.bat`) |
 | `build/tools/help-pages.mjs` | Generates the `!help` pages in CustomCommands' `Commands.json` |
 | `sync-custom-files.bat` | Two-way WinSCP sync of `custom_files` with the server |

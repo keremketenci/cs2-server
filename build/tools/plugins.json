@@ -4,7 +4,8 @@
     "keep: files inside the plugin folder (or elsewhere) that hold settings and must survive an update.",
     "CounterStrikeSharp and Metamod are not listed: the KitsuneLab egg updates them on every start.",
     "patched: plugin is self-built with local changes, the value is its step-by-step guide (build/patches/<Plugin>.md). Read it before updating.",
-    "reviewedMain: (self-built from a release) last upstream main commit we already reviewed, the update check only reports newer commits."
+    "reviewedMain: (self-built only) last upstream main commit we already reviewed, the update check only reports newer commits.",
+    "What to change here after a manual update: build/tools/README.md."
   ],
   "plugins": [
     {

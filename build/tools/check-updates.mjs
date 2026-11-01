@@ -1,5 +1,6 @@
 // Compares every installed plugin (plugins.json) with its latest GitHub release.
 // Usage: node check-updates.mjs
+// What to change in plugins.json after updating a plugin: README.md next to this file.
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -20,16 +21,18 @@ async function check(p) {
   if (!p.repo) return { status: 'own plugin', latest: '-' };
 
   if (p.installed.startsWith('commit:')) {
-    const sha = p.installed.slice(7);
+    // reviewedMain = last main commit we already checked (nothing relevant), only newer ones are reported.
+    const sha = p.reviewedMain ?? p.installed.slice(7);
     const [release, compare] = await Promise.all([
       github(`https://api.github.com/repos/${p.repo}/releases/latest`),
       github(`https://api.github.com/repos/${p.repo}/compare/${sha}...HEAD`),
     ]);
-    const ahead = compare?.ahead_by ?? '?';
+    if (!compare) return { status: `commit ${sha.slice(0, 7)} not found, check installed/reviewedMain`, latest: '?' };
+    const ahead = compare.ahead_by;
     return {
-      status: ahead === 0 ? 'up to date' : `${ahead} new commit(s)`,
-      latest: `release ${release?.tag_name ?? '?'}, main ${compare?.commits?.at(-1)?.sha?.slice(0, 7) ?? sha.slice(0, 7)}`,
-      date: compare?.commits?.at(-1)?.commit?.author?.date?.slice(0, 10) ?? '',
+      status: ahead === 0 ? 'up to date' : `${ahead} new commit(s) since ${p.reviewedMain ? 'last review' : 'our build'}`,
+      latest: `release ${release?.tag_name ?? '?'}, main ${compare.commits.at(-1)?.sha?.slice(0, 7) ?? sha.slice(0, 7)}`,
+      date: compare.commits.at(-1)?.commit?.author?.date?.slice(0, 10) ?? '',
     };
   }
 
@@ -46,7 +49,8 @@ async function check(p) {
   // reviewedMain = last main commit we already checked (nothing relevant), only newer ones are reported.
   const base = p.reviewedMain ?? latest;
   const compare = await github(`https://api.github.com/repos/${p.repo}/compare/${base}...HEAD`);
-  const ahead = compare?.ahead_by ?? '?';
+  if (!compare) return { status: `${base.slice(0, 12)} not found, check reviewedMain`, latest, date };
+  const ahead = compare.ahead_by;
   return {
     status: ahead === 0 ? 'up to date' : `${ahead} new commit(s) on main since ${p.reviewedMain ? 'last review' : 'release'}`,
     latest: ahead === 0 ? latest : `${latest}, main ${compare?.commits?.at(-1)?.sha?.slice(0, 7) ?? '?'}`,
